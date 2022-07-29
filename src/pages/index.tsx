@@ -1,3 +1,5 @@
+import { Gretting } from '../components/Gretting';
+
 export default function Home() {
-  return <h1>Hello World Bean Codes</h1>;
+  return <Gretting />;
 }
