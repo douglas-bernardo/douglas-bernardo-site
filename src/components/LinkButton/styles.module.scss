@@ -1,0 +1,22 @@
+.linkButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+
+  background: var(--gray-200);
+  border-radius: 5px;
+
+  transition: background-color 0.2s;
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  &:hover {
+    background: var(--gray-300);
+  }
+}

@@ -1,0 +1,48 @@
+.grettingContainer {
+  height: 3.75rem;
+  margin-top: 2.5rem;
+}
+
+.grettingContent {
+  max-width: 1100px;
+  height: 3.75rem;
+
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.grettingContentInfo {
+  min-width: 274px;
+  height: 3.75rem;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 13px;
+  }
+}
+
+.grettingData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,57 @@
+.cardContainer {
+  max-width: 45rem;
+  height: 200px;
+  display: flex;
+
+  img {
+    width: 346px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px 15px;
+  gap: 7px;
+
+  p {
+    display: -webkit-box;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 25px;
+    word-wrap: break-word;
+
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.cardDate {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  span {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--gray-400);
+  }
+}
+
+.cardDateDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--gray-400);
+}
