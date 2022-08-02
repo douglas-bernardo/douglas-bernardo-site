@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
 
-import { RiMoonFill } from 'react-icons/ri';
 import { ToggleThemeButton } from '../ToggleThemeButton';
 
 export function Header() {

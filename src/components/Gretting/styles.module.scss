@@ -1,16 +1,21 @@
 .grettingContainer {
+  height: 3.75rem;
+  margin-top: 2.5rem;
+}
+
+.grettingContent {
   max-width: 1100px;
   height: 3.75rem;
+
   margin: 0 auto;
   padding: 0 2rem;
-  margin-top: 40px;
 
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-.grettingContent {
+.grettingContentInfo {
   min-width: 274px;
   height: 3.75rem;
 
@@ -25,7 +30,7 @@
   }
 }
 
-.grettingContentInfo {
+.grettingData {
   display: flex;
   flex-direction: column;
   justify-content: center;

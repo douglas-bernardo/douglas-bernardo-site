@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+
 import { Gretting } from '../components/Gretting';
 import { HorizontalCard } from '../components/HorizontalCard';
 import { LinkButton } from '../components/LinkButton';
@@ -30,8 +31,10 @@ export default function Home() {
             <div>
               <LinkButton url="" text="React.js" />
               <LinkButton url="" text="Styled Components" />
-              <LinkButton url="" text="Node.js" />
+              <LinkButton url="" text="HTML" />
               <LinkButton url="" text="Next.js" />
+              <LinkButton url="" text="React Native" />
+              <LinkButton url="" text="Node.js" />
             </div>
           </div>
           <div className={styles.popularContainer}>
