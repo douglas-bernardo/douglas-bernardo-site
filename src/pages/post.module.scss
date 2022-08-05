@@ -1,0 +1,95 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2.688rem;
+}
+
+.post {
+  max-width: 912px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 63px;
+    text-align: center;
+  }
+}
+
+.postContent {
+  margin-top: 2rem;
+  line-height: 2rem;
+  font-size: 1.125rem;
+  color: var(--gray-800);
+
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+
+    margin: 3.125rem 0;
+  }
+}
+
+.publishedAt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  margin-top: 2rem;
+
+  span {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--gray-400);
+  }
+}
+
+.dateDivider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--gray-400);
+}
+
+.similarPosts {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 2rem;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.1em;
+
+    text-align: center;
+  }
+
+  > div {
+    margin-top: 4.125rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

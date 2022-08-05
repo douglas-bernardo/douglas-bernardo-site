@@ -32,7 +32,7 @@ export function Footer() {
           </Link>
         </nav>
 
-        <div>&copy; 2022-present Douglas Bernardo. All Rights Reserved.</div>
+        <div>&copy; 2022 - present Douglas Bernardo. All Rights Reserved.</div>
       </div>
     </footer>
   );

@@ -1,0 +1,26 @@
+.cardContainer {
+  display: flex;
+  width: 316px;
+  height: 221px;
+
+  flex-direction: column;
+
+  img {
+    width: 316px;
+    height: 179px;
+    object-fit: cover;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 5px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
