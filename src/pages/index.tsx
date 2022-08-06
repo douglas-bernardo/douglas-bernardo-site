@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Head>Post | BC</Head>
       <Gretting />
-      <main className={styles.contentContainer}>
+      <main className={styles.container}>
         <section className={styles.latestPosts}>
           <h3>LATEST</h3>
           <div>

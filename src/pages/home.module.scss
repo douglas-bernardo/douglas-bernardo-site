@@ -1,13 +1,19 @@
-.contentContainer {
+@import '../styles/media-queries';
+
+.container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   margin-top: 4.375rem;
 
+  display: grid;
+  grid-template-columns: minmax(346px, 721px) 285px;
+
   gap: 3.75rem;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
 }
 
 .latestPosts {
@@ -40,7 +46,6 @@
 }
 
 .categoriesContainer {
-  max-width: 16.25rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
