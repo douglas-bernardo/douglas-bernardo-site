@@ -1,8 +1,12 @@
 import styles from './styles.module.scss';
 
 import { ToggleThemeButton } from '../ToggleThemeButton';
+import { useState } from 'react';
+import { ToggleMenuNavBar } from '../ToggleMenuNavBar';
 
 export function Header() {
+  const [active, setActive] = useState(false);
+
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
@@ -29,7 +33,13 @@ export function Header() {
           </nav>
         </div>
 
-        <ToggleThemeButton />
+        <div className={styles.toggleDarkThemeButton}>
+          <ToggleThemeButton />
+        </div>
+
+        <div className={styles.toggleNavButton}>
+          <ToggleMenuNavBar />
+        </div>
       </div>
     </header>
   );
