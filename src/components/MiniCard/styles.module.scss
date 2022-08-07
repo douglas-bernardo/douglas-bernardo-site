@@ -1,12 +1,12 @@
 .cardContainer {
   display: flex;
-  width: 316px;
+  width: 100%;
   height: 221px;
 
   flex-direction: column;
 
   img {
-    width: 316px;
+    width: 100%;
     height: 179px;
     object-fit: cover;
   }
