@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { RiGithubLine, RiInstagramLine, RiTwitterLine } from 'react-icons/ri';
 import { FiLinkedin } from 'react-icons/fi';
 
