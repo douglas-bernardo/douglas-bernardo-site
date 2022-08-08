@@ -1,16 +1,16 @@
-@mixin ipad {
+@mixin large {
   @media screen and (max-width: 1024px) {
     @content;
   }
 }
 
-@mixin tablet {
+@mixin medium {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
 
-@mixin mobile {
+@mixin small {
   @media screen and (max-width: 480px) {
     @content;
   }

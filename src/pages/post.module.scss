@@ -6,7 +6,7 @@
   padding: 0 2rem;
   margin-top: 2.688rem;
 
-  @include tablet {
+  @include medium {
     padding: 0px;
   }
 }
@@ -22,13 +22,13 @@
     font-size: 54px;
     text-align: center;
 
-    @include tablet {
+    @include medium {
       font-size: 40px;
       padding: 0 22px;
     }
   }
 
-  @include tablet {
+  @include medium {
     padding: 0;
   }
 }
@@ -53,7 +53,7 @@
 
     margin: 3.125rem 0;
 
-    @include tablet {
+    @include medium {
       padding: 0 22px;
     }
   }
@@ -107,18 +107,15 @@
   > div {
     margin-top: 4.125rem;
     width: 100%;
-
-    // display: flex;
-    // justify-content: space-between;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 44px;
 
-    @include ipad {
+    @include large {
       grid-template-columns: 1fr 1fr;
     }
 
-    @include tablet {
+    @include medium {
       grid-template-columns: 1fr;
     }
   }

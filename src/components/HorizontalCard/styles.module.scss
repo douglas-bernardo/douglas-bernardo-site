@@ -8,7 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  @include mobile {
+  @include small {
     grid-template-columns: 1fr;
     height: 371px;
   }
@@ -42,7 +42,7 @@
     text-overflow: ellipsis;
   }
 
-  @include mobile {
+  @include small {
     padding: 5px;
   }
 }
