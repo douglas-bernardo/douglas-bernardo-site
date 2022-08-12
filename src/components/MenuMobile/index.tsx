@@ -23,11 +23,9 @@ export function MenuMobile() {
       <div
         className={`${styles.menuMobileContainer} ${active && styles.active}`}
       >
-        <nav>
+        <nav className={`${active && styles.animation}`}>
           <a href="">Posts</a>
-          <a href="" title="Back-end">
-            Back-end
-          </a>
+          <a href="">Back-end</a>
           <a href="" title="Front-end">
             Front-end
           </a>
@@ -39,7 +37,7 @@ export function MenuMobile() {
           </a>
         </nav>
 
-        <div className={styles.themeButton}>
+        <div className={`${styles.themeButton} ${active && styles.active}`}>
           <ToggleThemeButton />
         </div>
       </div>
