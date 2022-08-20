@@ -18,6 +18,10 @@
     height: 200px;
     object-fit: cover;
   }
+
+  & + div {
+    margin-top: 3.75rem;
+  }
 }
 
 .cardBody {

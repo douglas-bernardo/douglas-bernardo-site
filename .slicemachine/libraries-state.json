@@ -1,0 +1,212 @@
+{
+  "slices": {
+    "components": {
+      "code_block": {
+        "library": "slices",
+        "id": "code_block",
+        "name": "CodeBlock",
+        "description": "CodeBlock",
+        "model": {
+          "id": "code_block",
+          "type": "SharedSlice",
+          "name": "CodeBlock",
+          "description": "CodeBlock",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "CodeBlock",
+              "primary": {
+                "language": {
+                  "type": "Select",
+                  "config": {
+                    "label": "Language",
+                    "placeholder": "",
+                    "options": [
+                      "bash",
+                      "yaml",
+                      "javascript",
+                      "typescript",
+                      "csharp",
+                      "json",
+                      "dockerfile",
+                      "xml"
+                    ],
+                    "default_value": "bash"
+                  }
+                },
+                "preformatted": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Preformatted",
+                    "placeholder": "",
+                    "allowTargetBlank": true,
+                    "single": "preformatted"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "language": "javascript",
+              "preformatted": [
+                {
+                  "type": "paragraph",
+                  "text": "Non pariatur occaecat dolore veniam pariatur esse incididunt fugiat duis cillum commodo do elit labore dolor.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "code_block"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {}
+      },
+      "image": {
+        "library": "slices",
+        "id": "image",
+        "name": "Image",
+        "description": "Image",
+        "model": {
+          "id": "image",
+          "type": "SharedSlice",
+          "name": "Image",
+          "description": "Image",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Image",
+              "primary": {
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "label": "Image",
+                    "constraint": {},
+                    "thumbnails": []
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "image": {
+                "dimensions": {
+                  "width": 900,
+                  "height": 500
+                },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2"
+              }
+            },
+            "slice_type": "image"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "js"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/douglas/www/projects/bean-codes/.slicemachine/assets/slices/Image/default/preview.png",
+            "width": 800,
+            "height": 4564
+          }
+        }
+      },
+      "text": {
+        "library": "slices",
+        "id": "text",
+        "name": "Text",
+        "description": "Text",
+        "model": {
+          "id": "text",
+          "type": "SharedSlice",
+          "name": "Text",
+          "description": "Text",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Text",
+              "primary": {
+                "text": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Text",
+                    "placeholder": "A nice description of your feature",
+                    "allowTargetBlank": true,
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  }
+                }
+              },
+              "items": {},
+              "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "version": "sktwi1xtmkfgx8626",
+            "items": [
+              {}
+            ],
+            "primary": {
+              "text": [
+                {
+                  "type": "paragraph",
+                  "text": "Pariatur laborum tempor exercitation sunt consectetur culpa mollit velit elit quis sit consequat.",
+                  "spans": []
+                }
+              ]
+            },
+            "slice_type": "text"
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "extension": "tsx"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/douglas/www/projects/bean-codes/.slicemachine/assets/slices/Text/default/preview.png",
+            "width": 800,
+            "height": 44
+          }
+        }
+      }
+    }
+  }
+}

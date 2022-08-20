@@ -48,7 +48,7 @@
   }
 }
 
-@keyframes swingViewport {
+@keyframes animationOn {
   from {
     opacity: 0;
     transform: translateX(-100%);
@@ -83,11 +83,14 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    animation: 3s ease-in-out swingViewport;
 
     a {
       font-size: 22px;
       font-weight: 500;
+    }
+
+    &.animation {
+      animation: animationOn 1s;
     }
   }
 
@@ -99,4 +102,11 @@
 
 .themeButton {
   margin-top: 90px;
+  opacity: 0;
+
+  transition: opacity 300ms ease 500ms;
+
+  &.active {
+    opacity: 1;
+  }
 }
