@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 
 import { ToggleThemeButton } from '../ToggleThemeButton';
+import { ActiveLink } from '../ActiveLink';
 
 export function Header() {
   return (
@@ -11,21 +12,25 @@ export function Header() {
           <h2>Bean Codes</h2>
 
           <nav>
-            <a href="" className={styles.active} title="Posts">
-              Posts
-            </a>
-            <a href="" title="Back-end">
-              Back-end
-            </a>
-            <a href="" title="Front-end">
-              Front-end
-            </a>
-            <a href="" title="Mobile">
-              Mobile
-            </a>
-            <a href="" title="DevOps">
-              DevOps
-            </a>
+            <ActiveLink activeClassName={styles.active} href="/">
+              <a title="Posts">Posts</a>
+            </ActiveLink>
+
+            <ActiveLink activeClassName={styles.active} href="/back-end">
+              <a title="Back-end">Back-end</a>
+            </ActiveLink>
+
+            <ActiveLink activeClassName={styles.active} href="/front-end">
+              <a title="Front-end">Front-end</a>
+            </ActiveLink>
+
+            <ActiveLink activeClassName={styles.active} href="/mobile">
+              <a title="Mobile">Mobile</a>
+            </ActiveLink>
+
+            <ActiveLink activeClassName={styles.active} href="/devops">
+              <a title="DevOps">DevOps</a>
+            </ActiveLink>
           </nav>
         </div>
 

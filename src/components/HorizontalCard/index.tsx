@@ -1,38 +1,45 @@
 import Link from 'next/link';
 
+import { getExcerpt, timeDistance } from '../../helpers/utils';
+import { Post } from '../../@types/types';
+
 import styles from './styles.module.scss';
+import { PrismicText } from '@prismicio/react';
 
-export function HorizontalCard() {
+type Props = {
+  post: Post;
+};
+
+export function HorizontalCard({ post }: Props) {
+  const excerpt = getExcerpt(post.data.slices);
+
   return (
-    <Link href={''}>
-      <a>
-        <div className={styles.cardContainer}>
+    <div className={styles.cardContainer}>
+      <Link href={`/posts/${post.uid}`}>
+        <a>
           <img
-            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt="cover"
+            src={post.data.featured_image.url}
+            alt={post.data.featured_image.alt}
           />
+        </a>
+      </Link>
 
-          <div className={styles.cardBody}>
-            <h2>Write Code Better</h2>
-
-            <div className={styles.cardDate}>
-              <span>2 months ago</span>
-              <div className={styles.cardDateDivider} />
-              <span>2 min read</span>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-              nesciunt ratione eos explicabo enim nulla quis, aliquid molestiae
-              quod rem culpa ullam. Aut, laborum omnis. Iste sint nemo
-              reprehenderit sed. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. Maiores nesciunt ratione eos explicabo enim
-              nulla quis, aliquid molestiae quod rem culpa ullam. Aut, laborum
-              omnis. Iste sint nemo reprehenderit sed.
-            </p>
-          </div>
+      <div className={styles.cardBody}>
+        <Link href={`/posts/${post.uid}`}>
+          <a>
+            <h2>
+              <PrismicText field={post.data.title} />
+            </h2>
+          </a>
+        </Link>
+        <div className={styles.cardDate}>
+          <span>{timeDistance(post.last_publication_date)}</span>
+          <div className={styles.cardDateDivider} />
+          <span>{`${post.data.read_minutes || 0} min read`}</span>
         </div>
-      </a>
-    </Link>
+
+        <p>{excerpt}</p>
+      </div>
+    </div>
   );
 }

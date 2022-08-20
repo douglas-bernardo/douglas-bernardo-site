@@ -1,0 +1,43 @@
+{
+  "_cts": {
+    "post": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
+    }
+  },
+  "slices": {
+    "Text": {
+      "default": {
+        "primary": {
+          "text": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "Image": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "CodeBlock": {
+      "default": {
+        "primary": {
+          "preformatted": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

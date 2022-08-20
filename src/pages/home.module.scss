@@ -29,14 +29,6 @@
     align-items: center;
     letter-spacing: 0.1em;
   }
-
-  a {
-    display: block;
-
-    & + a {
-      margin-top: 3.75rem;
-    }
-  }
 }
 
 .sideLinks {
