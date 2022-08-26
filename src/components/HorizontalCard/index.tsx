@@ -5,6 +5,7 @@ import { Post } from '../../@types/types';
 
 import styles from './styles.module.scss';
 import { PrismicText } from '@prismicio/react';
+import Image from 'next/image';
 
 type Props = {
   post: Post;
@@ -17,9 +18,13 @@ export function HorizontalCard({ post }: Props) {
     <div className={styles.cardContainer}>
       <Link href={`/posts/${post.uid}`}>
         <a>
-          <img
+          <Image
+            width={346}
+            height={200}
+            objectFit="cover"
             src={post.data.featured_image.url}
             alt={post.data.featured_image.alt}
+            className="custom-img"
           />
         </a>
       </Link>

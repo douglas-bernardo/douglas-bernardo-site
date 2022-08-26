@@ -8,11 +8,10 @@ import { Header } from '../components/Header';
 import { MenuMobile } from '../components/MenuMobile';
 import { linkResolver, repositoryName } from '../services/prismicio';
 
-import '../styles/_global.scss';
-
 import 'highlight.js/styles/github-dark.css';
 
-import styles from './app.module.scss';
+import '../styles/_global.scss';
+import styles from './../styles/app.module.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

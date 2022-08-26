@@ -1,0 +1,19 @@
+{
+  "id": "category",
+  "label": "Category",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "category_name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Category Name",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}
