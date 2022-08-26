@@ -1,6 +1,7 @@
 @import '../../styles/media-queries';
 
 .cardContainer {
+  position: relative;
   max-width: 45rem;
   height: 200px;
   display: flex;

@@ -1,3 +1,5 @@
+import { RichTextField } from '@prismicio/types';
+
 export type Post = {
   uid: string;
   type: string;
@@ -27,5 +29,21 @@ export type Slice = {
         spans: [];
       },
     ];
+  };
+};
+
+export type Settings = {
+  data: {
+    name: RichTextField;
+    description: RichTextField;
+    profilePicture: {
+      dimensions: {
+        width: number;
+        height: number;
+      };
+      alt: string;
+      copyright: string;
+      url: string;
+    };
   };
 };

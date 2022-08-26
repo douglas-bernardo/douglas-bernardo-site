@@ -2,6 +2,7 @@ import styles from './styles.module.scss';
 
 import { ToggleThemeButton } from '../ToggleThemeButton';
 import { ActiveLink } from '../ActiveLink';
+import Link from 'next/link';
 
 export function Header() {
   return (
@@ -9,7 +10,12 @@ export function Header() {
       <div className={styles.headerContent}>
         <div>
           {/* <img src="/images/logo/logo.png" alt="logo" /> */}
-          <h2>Bean Codes</h2>
+
+          <Link href="/">
+            <a>
+              <h2>Bean Codes</h2>
+            </a>
+          </Link>
 
           <nav>
             <ActiveLink activeClassName={styles.active} href="/">

@@ -16,11 +16,11 @@
 }
 
 .grettingContentInfo {
-  min-width: 274px;
   height: 3.75rem;
 
   display: flex;
   align-items: center;
+  gap: 10px;
 
   img {
     width: 60px;
@@ -40,9 +40,5 @@
 
   p {
     font-size: 0.875rem;
-  }
-
-  span {
-    font-weight: bold;
   }
 }

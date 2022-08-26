@@ -1,0 +1,38 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "settings",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "name": [
+      {
+        "type": "paragraph",
+        "text": "Non elit occaecat id cillum.",
+        "spans": []
+      }
+    ],
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Qui quis culpa voluptate esse. Eiusmod in duis cupidatat.",
+        "spans": []
+      }
+    ],
+    "profilePicture": {
+      "dimensions": {
+        "width": 2000,
+        "height": 2000
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1587905069134-008460d7a636"
+    }
+  }
+}
