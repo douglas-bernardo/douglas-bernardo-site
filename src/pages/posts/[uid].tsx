@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID('post', String(uid));
 
-  // console.log(post);
+  console.log(params);
 
   return {
     props: {
