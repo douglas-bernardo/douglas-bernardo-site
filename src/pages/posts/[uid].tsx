@@ -25,7 +25,7 @@ export default function Post({ post }: Props) {
 
       <main className={styles.container}>
         <article className={styles.post}>
-          <h1>{prismicH.asText(post.data.title)}</h1>
+          <h1 className="text">{prismicH.asText(post.data.title)}</h1>
 
           <div className={styles.publishedAt}>
             <span>{timeDistance(post.last_publication_date)}</span>
@@ -33,14 +33,14 @@ export default function Post({ post }: Props) {
             <span>{`${post.data.read_minutes || 0} min read`}</span>
           </div>
 
-          <div className={styles.postContent}>
+          <div className={`${styles.postContent} text`}>
             <SliceZone slices={post.data.slices} components={components} />
           </div>
         </article>
       </main>
 
       <div className={styles.similarPosts}>
-        <h3>SIMILAR POSTS</h3>
+        <h3 className="text">SIMILAR POSTS</h3>
 
         <div>
           <MiniCard />
@@ -61,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID('post', String(uid));
 
-  // console.log(post);
+  console.log(params);
 
   return {
     props: {

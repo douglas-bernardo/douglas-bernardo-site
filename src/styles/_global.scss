@@ -50,3 +50,23 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.light {
+  .text {
+    color: var(--gray-800);
+  }
+
+  .background {
+    background: var(--white);
+  }
+}
+
+.dark {
+  .text {
+    color: var(--white);
+  }
+
+  .background {
+    background: var(--gray-800);
+  }
+}

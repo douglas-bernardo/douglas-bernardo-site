@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
-import styles from './../styles/page.module.scss';
+import styles from './../../styles/page.module.scss';
 
 type PageProps = {
   slug: string;
 };
 
-export default function Page({ slug }: PageProps) {
+export default function Tutorials({ slug }: PageProps) {
   return (
     <>
       <Head>

@@ -8,7 +8,14 @@
   align-items: flex-end;
 
   height: 15.625rem;
+}
+
+.light {
   background-color: var(--gray-100);
+}
+
+.dark {
+  background-color: var(--gray-700);
 }
 
 .footerContent {

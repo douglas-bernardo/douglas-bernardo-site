@@ -47,6 +47,13 @@
     text-overflow: ellipsis;
   }
 
+  h2 {
+    transition: color 0.2s;
+    &:hover {
+      color: var(--gray-300);
+    }
+  }
+
   @include small {
     padding: 5px;
   }

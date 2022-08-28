@@ -2,10 +2,12 @@ import { RiGithubLine, RiInstagramLine, RiTwitterLine } from 'react-icons/ri';
 import { FiLinkedin } from 'react-icons/fi';
 
 import styles from './styles.module.scss';
+import { useTheme } from '../../context/theme';
 
 export function Footer() {
+  const { theme } = useTheme();
   return (
-    <footer className={styles.footerContainer}>
+    <footer className={`${styles.footerContainer} ${styles[theme]}`}>
       <div className={styles.footerContent}>
         <nav>
           <a href="https://github.com/douglas-bernardo" target="_blank">

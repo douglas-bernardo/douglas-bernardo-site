@@ -32,7 +32,7 @@ export function HorizontalCard({ post }: Props) {
       <div className={styles.cardBody}>
         <Link href={`/posts/${post.uid}`}>
           <a>
-            <h2>
+            <h2 className="text">
               <PrismicText field={post.data.title} />
             </h2>
           </a>
@@ -43,7 +43,7 @@ export function HorizontalCard({ post }: Props) {
           <span>{`${post.data.read_minutes || 0} min read`}</span>
         </div>
 
-        <p>{excerpt}</p>
+        <p className="text">{excerpt}</p>
       </div>
     </div>
   );

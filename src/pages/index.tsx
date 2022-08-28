@@ -1,8 +1,9 @@
 import { GetStaticProps } from 'next';
+import * as prismicH from '@prismicio/helpers';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { Post, Settings } from '../@types/types';
+import { Category, Post, Settings } from '../@types/types';
 
 import { Gretting } from '../components/Gretting';
 import { HorizontalCard } from '../components/HorizontalCard';
@@ -10,13 +11,15 @@ import { LinkButton } from '../components/LinkButton';
 import { createClient } from '../services/prismicio';
 
 import styles from './../styles/home.module.scss';
+import { PrismicText } from '@prismicio/react';
 
 type Props = {
   posts: Post[];
   settings: Settings;
+  categories: Category[];
 };
 
-export default function Home({ posts, settings }: Props) {
+export default function Home({ posts, settings, categories }: Props) {
   return (
     <>
       <Head>
@@ -27,7 +30,7 @@ export default function Home({ posts, settings }: Props) {
 
       <main className={styles.container}>
         <section className={styles.latestPosts}>
-          <h3>LATEST</h3>
+          <h3 className="text">LATEST</h3>
           <div>
             {posts.map((post) => (
               <HorizontalCard key={post.uid} post={post} />
@@ -37,53 +40,31 @@ export default function Home({ posts, settings }: Props) {
 
         <section className={styles.sideLinks}>
           <div className={styles.categoriesContainer}>
-            <h3>CATEGORIES</h3>
+            <h3 className="text">CATEGORIES</h3>
 
             <div>
-              <LinkButton url="" text="React.js" />
-              <LinkButton url="" text="Styled Components" />
-              <LinkButton url="" text="HTML" />
-              <LinkButton url="" text="Next.js" />
-              <LinkButton url="" text="React Native" />
-              <LinkButton url="" text="Node.js" />
+              {categories.map((category) => (
+                <LinkButton
+                  key={category.slug}
+                  url={`/tutorials/${category.slug}`}
+                  text={category.name}
+                />
+              ))}
             </div>
           </div>
           <div className={styles.popularContainer}>
-            <h3>POPULAR</h3>
+            <h3 className="text">POPULAR</h3>
 
             <ul>
-              <Link href={''}>
-                <a>
-                  <li>What if All I Want is a Mediocre Life?</li>
-                </a>
-              </Link>
-              <Link href={''}>
-                <a>
-                  <li>10 Things Minimalists Don’t Do</li>
-                </a>
-              </Link>
-              <Link href={''}>
-                <a>
-                  <li>
-                    Why Simplifying May Protect Our Children’s Mental Health
-                  </li>
-                </a>
-              </Link>
-              <Link href={''}>
-                <a>
-                  <li>50 Simple Things You Need to Hear</li>
-                </a>
-              </Link>
-              <Link href={''}>
-                <a>
-                  <li>How to Detangle Productivity and Your Self-Worth</li>
-                </a>
-              </Link>
-              <Link href={''}>
-                <a>
-                  <li>How a “Do Nothing” Day Changed My Life</li>
-                </a>
-              </Link>
+              {posts.map((post) => (
+                <Link key={post.uid} href={`/posts/${post.uid}`}>
+                  <a>
+                    <li className="text">
+                      <PrismicText field={post.data.title} />
+                    </li>
+                  </a>
+                </Link>
+              ))}
             </ul>
           </div>
         </section>
@@ -92,18 +73,27 @@ export default function Home({ posts, settings }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  previewData,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
 
-  const posts = await client.getAllByType('post');
+  const posts = await client.getAllByType('post', { limit: 5 });
+  const categoriesResponse = await client.getAllByType('category', {
+    limit: 6,
+  });
   const settings = await client.getSingle('settings');
 
-  console.log(JSON.stringify(settings, null, 2));
+  const categories = categoriesResponse.map((category) => {
+    return {
+      name: prismicH.asText(category.data.category_name),
+      slug: category.uid,
+    };
+  });
 
   return {
-    props: { posts, settings },
+    props: {
+      posts,
+      settings,
+      categories,
+    },
   };
 };
