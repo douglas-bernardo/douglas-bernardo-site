@@ -24,3 +24,11 @@
     text-overflow: ellipsis;
   }
 }
+
+.light {
+  background-color: var(--gray-100);
+}
+
+.dark {
+  background-color: var(--gray-700);
+}

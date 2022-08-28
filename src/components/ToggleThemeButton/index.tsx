@@ -2,26 +2,27 @@ import { RiMoonFill } from 'react-icons/ri';
 import { ImSun } from 'react-icons/im';
 
 import styles from './styles.module.scss';
-import { useState } from 'react';
+
+import { useTheme } from '../../context/theme';
 
 export function ToggleThemeButton() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
-  return isDarkTheme ? (
+  return theme === 'dark' ? (
     <button
       type="button"
-      onClick={() => setIsDarkTheme(!isDarkTheme)}
+      onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeLight}`}
     >
-      <ImSun color="#121214" />
+      <ImSun />
     </button>
   ) : (
     <button
       type="button"
-      onClick={() => setIsDarkTheme(!isDarkTheme)}
+      onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeDark}`}
     >
-      <RiMoonFill color="#121214" />
+      <RiMoonFill />
     </button>
   );
 }

@@ -15,7 +15,7 @@ export default function Page({ slug }: PageProps) {
       </Head>
 
       <section className={styles.container}>
-        <h2>Under Construction...</h2>
+        <h2 className="text">Under Construction...</h2>
         <img src="/images/working-from-home.svg" alt="under construction" />
       </section>
     </>

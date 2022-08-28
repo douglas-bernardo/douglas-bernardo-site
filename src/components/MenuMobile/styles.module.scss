@@ -21,8 +21,15 @@
     width: 20px;
     height: 4px;
     border-radius: 4px;
-    background: var(--gray-800);
     transition: 0.5s;
+
+    &.light {
+      background: var(--gray-800);
+    }
+
+    &.dark {
+      background: var(--white);
+    }
   }
 
   span:nth-child(1) {
@@ -74,7 +81,6 @@
 
   opacity: 0;
   pointer-events: none;
-  background: rgba(255, 255, 255, 0.9);
 
   transition: opacity 500ms ease 0s;
 
@@ -98,6 +104,14 @@
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+.light {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dark {
+  background: rgba(17, 24, 30, 0.9);
 }
 
 .themeButton {

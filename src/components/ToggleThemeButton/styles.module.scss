@@ -22,9 +22,17 @@
 }
 
 .toggleThemeLight {
-  background: var(--white);
+  background: var(--gray-800);
+
+  svg {
+    color: var(--white);
+  }
 }
 
 .toggleThemeDark {
   background: var(--gray-200);
+
+  svg {
+    color: var(--gray-800);
+  }
 }

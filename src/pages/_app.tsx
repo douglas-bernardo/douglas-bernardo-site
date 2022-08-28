@@ -1,21 +1,21 @@
+import Head from 'next/head';
+import Link from 'next/link';
+
 import { PrismicPreview } from '@prismicio/next';
 import { PrismicProvider } from '@prismicio/react';
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import Link from 'next/link';
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { MenuMobile } from '../components/MenuMobile';
 import { linkResolver, repositoryName } from '../services/prismicio';
+
+import '../styles/_global.scss';
 
 import 'highlight.js/styles/github-dark.css';
 
-import '../styles/_global.scss';
-import styles from './../styles/app.module.scss';
+import { AppProvider } from '../context';
+import { Layout } from '../components/Layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -28,13 +28,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         )}
       >
         <PrismicPreview repositoryName={repositoryName}>
-          <MenuMobile />
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
+          <AppProvider>
+            {/* <MenuMobile />
+            <Header /> */}
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+            {/* <Footer /> */}
+          </AppProvider>
         </PrismicPreview>
       </PrismicProvider>
-    </div>
+    </>
   );
 }
 

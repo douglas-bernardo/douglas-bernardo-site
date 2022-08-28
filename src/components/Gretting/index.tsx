@@ -26,7 +26,7 @@ export function Gretting({ settings }: Props) {
             />
           )}
 
-          <div className={styles.grettingData}>
+          <div className={`${styles.grettingData} text`}>
             {prismicH.isFilled.richText(name) && (
               <p>
                 <PrismicText field={name} />

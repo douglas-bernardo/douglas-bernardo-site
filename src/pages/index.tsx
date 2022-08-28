@@ -30,7 +30,7 @@ export default function Home({ posts, settings, categories }: Props) {
 
       <main className={styles.container}>
         <section className={styles.latestPosts}>
-          <h3>LATEST</h3>
+          <h3 className="text">LATEST</h3>
           <div>
             {posts.map((post) => (
               <HorizontalCard key={post.uid} post={post} />
@@ -40,7 +40,7 @@ export default function Home({ posts, settings, categories }: Props) {
 
         <section className={styles.sideLinks}>
           <div className={styles.categoriesContainer}>
-            <h3>CATEGORIES</h3>
+            <h3 className="text">CATEGORIES</h3>
 
             <div>
               {categories.map((category) => (
@@ -53,13 +53,13 @@ export default function Home({ posts, settings, categories }: Props) {
             </div>
           </div>
           <div className={styles.popularContainer}>
-            <h3>POPULAR</h3>
+            <h3 className="text">POPULAR</h3>
 
             <ul>
               {posts.map((post) => (
                 <Link key={post.uid} href={`/posts/${post.uid}`}>
                   <a>
-                    <li>
+                    <li className="text">
                       <PrismicText field={post.data.title} />
                     </li>
                   </a>
