@@ -5,13 +5,13 @@
   "status": true,
   "json": {
     "Main": {
-      "name": {
+      "greeting_text": {
         "type": "StructuredText",
         "config": {
-          "label": "Name",
+          "label": "Greeting Text",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "strong,paragraph"
+          "single": "paragraph,strong,em"
         }
       },
       "description": {

@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Category, Post, Settings } from '../@types/types';
 
-import { Gretting } from '../components/Gretting';
+import { Greeting } from '../components/Greeting';
 import { HorizontalCard } from '../components/HorizontalCard';
 import { LinkButton } from '../components/LinkButton';
 import { createClient } from '../services/prismicio';
@@ -26,7 +26,7 @@ export default function Home({ posts, settings, categories }: Props) {
         <title>Post | BC</title>
       </Head>
 
-      <Gretting settings={settings} />
+      <Greeting settings={settings} />
 
       <main className={styles.container}>
         <section className={styles.latestPosts}>
@@ -46,7 +46,7 @@ export default function Home({ posts, settings, categories }: Props) {
               {categories.map((category) => (
                 <LinkButton
                   key={category.slug}
-                  url={`/tutorials/${category.slug}`}
+                  url={`/category/${category.slug}`}
                   text={category.name}
                 />
               ))}

@@ -1,23 +1,27 @@
 import Link from 'next/link';
+import { Post } from '../../@types/types';
 import { useTheme } from '../../context/theme';
+import { getExcerpt } from '../../helpers/utils';
 
 import styles from './styles.module.scss';
 
-export function MiniCard() {
+type Props = {
+  post: Post;
+};
+
+export function MiniCard({ post }: Props) {
   const { theme } = useTheme();
+  const excerpt = getExcerpt(post.data.slices);
+
   return (
-    <Link href={''}>
-      <a href="">
+    <Link href={`/posts/${post.uid}`}>
+      <a>
         <div className={`${styles.cardContainer} ${styles[theme]}`}>
           <img
-            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-            alt="cover"
+            src={post.data.featured_image.url}
+            alt={post.data.featured_image.alt}
           />
-          <p className="text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            nesciunt ratione eos explicabo enim nulla quis, aliquid molestiae
-            quod rem culpa ullam. Aut, laborum omnis.
-          </p>
+          <p className="text">{excerpt}</p>
         </div>
       </a>
     </Link>

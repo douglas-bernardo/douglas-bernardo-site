@@ -34,7 +34,7 @@ export type Slice = {
 
 export type Settings = {
   data: {
-    name: RichTextField;
+    greeting_text: RichTextField;
     description: RichTextField;
     profilePicture: {
       dimensions: {
