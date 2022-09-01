@@ -9,13 +9,13 @@
       }
     },
     "settings": {
-      "name": {
+      "description": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
       },
-      "description": {
+      "greeting_text": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1

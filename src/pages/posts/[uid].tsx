@@ -1,5 +1,6 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
+import * as prismic from '@prismicio/client';
 
 import Head from 'next/head';
 
@@ -14,9 +15,10 @@ import { timeDistance } from '../../helpers/utils';
 
 type Props = {
   post: PostProps;
+  latestSimilarPosts: PostProps[];
 };
 
-export default function Post({ post }: Props) {
+export default function Post({ post, latestSimilarPosts }: Props) {
   return (
     <>
       <Head>
@@ -39,15 +41,16 @@ export default function Post({ post }: Props) {
         </article>
       </main>
 
-      <div className={styles.similarPosts}>
-        <h3 className="text">SIMILAR POSTS</h3>
-
-        <div>
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
+      {latestSimilarPosts.length > 0 && (
+        <div className={styles.similarPosts}>
+          <h3 className="text">SIMILAR POSTS</h3>
+          <div>
+            {latestSimilarPosts.map((p) => (
+              <MiniCard key={p.uid} post={p} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
@@ -60,17 +63,24 @@ export const getStaticProps: GetStaticProps = async ({
   const { uid } = params;
 
   const post = await client.getByUID('post', String(uid));
-
-  console.log(params);
+  const latestSimilarPosts = await client.getAllByType('post', {
+    limit: 3,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+    predicates: [prismic.predicate.similar(post.id, 10)],
+  });
 
   return {
     props: {
       post,
+      latestSimilarPosts,
     },
+    revalidate: 60 * 60 * 24, // 24h
   };
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   // const client = createClient();
 
   // const posts = await client.getAllByType('post');
@@ -81,4 +91,4 @@ export async function getStaticPaths() {
     paths: [],
     fallback: 'blocking',
   };
-}
+};

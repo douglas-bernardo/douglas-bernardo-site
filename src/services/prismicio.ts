@@ -18,10 +18,12 @@ export function linkResolver(doc) {
   console.log(doc.type);
 
   switch (doc.type) {
-    case 'homepage':
-      return '/';
+    case 'tutorials':
+      return `/category/${doc.uid}`;
+
     case 'posts':
       return `/${doc.uid}`;
+
     default:
       return null;
   }

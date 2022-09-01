@@ -1,5 +1,5 @@
 import * as prismicH from '@prismicio/helpers';
-import { PrismicText } from '@prismicio/react';
+import { PrismicRichText, PrismicText } from '@prismicio/react';
 
 import Image from 'next/image';
 
@@ -10,13 +10,13 @@ type Props = {
   settings: Settings;
 };
 
-export function Gretting({ settings }: Props) {
-  const { name, description, profilePicture } = settings.data;
+export function Greeting({ settings }: Props) {
+  const { greeting_text, description, profilePicture } = settings.data;
 
   return (
-    <div className={styles.grettingContainer}>
-      <div className={styles.grettingContent}>
-        <div className={styles.grettingContentInfo}>
+    <div className={styles.greetingContainer}>
+      <div className={styles.greetingContent}>
+        <div className={styles.greetingContentInfo}>
           {prismicH.isFilled.image(profilePicture) && (
             <Image
               src={profilePicture.url}
@@ -26,11 +26,9 @@ export function Gretting({ settings }: Props) {
             />
           )}
 
-          <div className={`${styles.grettingData} text`}>
-            {prismicH.isFilled.richText(name) && (
-              <p>
-                <PrismicText field={name} />
-              </p>
+          <div className={`${styles.greetingData} text`}>
+            {prismicH.isFilled.richText(greeting_text) && (
+              <PrismicRichText field={greeting_text} />
             )}
             {prismicH.isFilled.richText(description) && (
               <p>

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../context/theme';
 import { ToggleThemeButton } from '../ToggleThemeButton';
 
@@ -11,6 +12,10 @@ export function MenuMobile() {
   useEffect(() => {
     document.body.style.overflowY = active ? 'hidden' : 'auto';
   }, [active]);
+
+  const handleClickMenu = useCallback(() => {
+    setActive(false);
+  }, []);
 
   return (
     <>
@@ -28,17 +33,21 @@ export function MenuMobile() {
         }`}
       >
         <nav className={`${active && styles.animation} text`}>
-          <a href="">Posts</a>
-          <a href="">Back-end</a>
-          <a href="" title="Front-end">
-            Front-end
-          </a>
-          <a href="" title="Mobile">
-            Mobile
-          </a>
-          <a href="" title="DevOps">
-            DevOps
-          </a>
+          <Link href={'/'}>
+            <a onClick={handleClickMenu}>Posts</a>
+          </Link>
+          <Link href={'/back-end'}>
+            <a onClick={handleClickMenu}>Back-end</a>
+          </Link>
+          <Link href={'/front-end'}>
+            <a onClick={handleClickMenu}>Front-end</a>
+          </Link>
+          <Link href={'/mobile'}>
+            <a onClick={handleClickMenu}>Mobile</a>
+          </Link>
+          <Link href={'/devops'}>
+            <a onClick={handleClickMenu}>DevOps</a>
+          </Link>
         </nav>
 
         <div className={`${styles.themeButton} ${active && styles.active}`}>
