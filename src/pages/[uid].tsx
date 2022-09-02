@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { capitalize } from '../helpers/utils';
 
 import styles from './../styles/page.module.scss';
 
@@ -11,7 +12,7 @@ export default function Page({ slug }: PageProps) {
   return (
     <>
       <Head>
-        <title>| Bean Codes</title>
+        <title>{`${slug} | Beancodes`}</title>
       </Head>
 
       <section className={styles.container}>
@@ -28,7 +29,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      slug: uid,
+      slug: capitalize(String(uid)),
     },
   };
 };

@@ -32,7 +32,11 @@ export function MenuMobile() {
           styles[theme]
         }`}
       >
-        <nav className={`${active && styles.animation} text`}>
+        <nav
+          className={`${
+            active ? styles.animationOn : styles.animationOff
+          } text`}
+        >
           <Link href={'/'}>
             <a onClick={handleClickMenu}>Posts</a>
           </Link>

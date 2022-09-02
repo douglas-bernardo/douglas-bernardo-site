@@ -23,7 +23,7 @@ export default function Home({ posts, settings, categories }: Props) {
   return (
     <>
       <Head>
-        <title>Post | BC</title>
+        <title>Beancodes</title>
       </Head>
 
       <Greeting settings={settings} />

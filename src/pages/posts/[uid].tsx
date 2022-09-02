@@ -22,7 +22,7 @@ export default function Post({ post, latestSimilarPosts }: Props) {
   return (
     <>
       <Head>
-        <title>{`${prismicH.asText(post.data.title)} | Bean Codes`}</title>
+        <title>{`${prismicH.asText(post.data.title)} | Beancodes`}</title>
       </Head>
 
       <main className={styles.container}>

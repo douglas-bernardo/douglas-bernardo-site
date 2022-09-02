@@ -66,6 +66,17 @@
   }
 }
 
+@keyframes animationOff {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
 .menuMobileContainer {
   position: absolute;
   backdrop-filter: blur(3px);
@@ -82,7 +93,7 @@
   opacity: 0;
   pointer-events: none;
 
-  transition: opacity 500ms ease 0s;
+  transition: opacity 300ms ease 300ms;
 
   nav {
     margin-top: 90px;
@@ -95,8 +106,12 @@
       font-weight: 500;
     }
 
-    &.animation {
+    &.animationOn {
       animation: animationOn 1s;
+    }
+
+    &.animationOff {
+      animation: animationOff 1s;
     }
   }
 
@@ -118,7 +133,7 @@
   margin-top: 90px;
   opacity: 0;
 
-  transition: opacity 300ms ease 500ms;
+  transition: opacity 600ms ease-in-out 600ms;
 
   &.active {
     opacity: 1;
