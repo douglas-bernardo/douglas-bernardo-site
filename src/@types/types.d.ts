@@ -49,6 +49,7 @@ export type Settings = {
 };
 
 export type Category = {
+  id: string;
   name: string;
   slug: string;
 };

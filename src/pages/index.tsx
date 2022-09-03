@@ -23,7 +23,7 @@ export default function Home({ posts, settings, categories }: Props) {
   return (
     <>
       <Head>
-        <title>Post | BC</title>
+        <title>Beancodes</title>
       </Head>
 
       <Greeting settings={settings} />
@@ -79,15 +79,21 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const posts = await client.getAllByType('post', { limit: 5 });
   const categoriesResponse = await client.getAllByType('category', {
     limit: 6,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
   });
   const settings = await client.getSingle('settings');
 
   const categories = categoriesResponse.map((category) => {
     return {
+      id: category.id,
       name: prismicH.asText(category.data.category_name),
       slug: category.uid,
     };
   });
+
+  console.log(categoriesResponse);
 
   return {
     props: {
