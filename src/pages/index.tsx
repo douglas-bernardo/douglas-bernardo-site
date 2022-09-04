@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 
-import Head from 'next/head';
 import Link from 'next/link';
 import { Category, Post, Settings } from '../@types/types';
 
@@ -22,10 +21,6 @@ type Props = {
 export default function Home({ posts, settings, categories }: Props) {
   return (
     <>
-      <Head>
-        <title>Beancodes</title>
-      </Head>
-
       <Greeting settings={settings} />
 
       <main className={styles.container}>
@@ -92,8 +87,6 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
       slug: category.uid,
     };
   });
-
-  console.log(categoriesResponse);
 
   return {
     props: {

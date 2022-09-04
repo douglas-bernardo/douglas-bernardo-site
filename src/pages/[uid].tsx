@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import { capitalize } from '../helpers/utils';
 
+import { Page as SEOPage } from '../components/Page';
 import styles from './../styles/page.module.scss';
 
 type PageProps = {
@@ -10,16 +10,16 @@ type PageProps = {
 
 export default function Page({ slug }: PageProps) {
   return (
-    <>
-      <Head>
-        <title>{`${slug} | Beancodes`}</title>
-      </Head>
-
+    <SEOPage
+      title={`${capitalize(String(slug))} | Beancodes`}
+      description="Under Construction..."
+      path={`/${slug}`}
+    >
       <section className={styles.container}>
         <h2 className="text">Under Construction...</h2>
         <img src="/images/working-from-home.svg" alt="under construction" />
       </section>
-    </>
+    </SEOPage>
   );
 }
 
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      slug: capitalize(String(uid)),
+      slug: uid,
     },
   };
 };
