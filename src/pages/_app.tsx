@@ -5,6 +5,7 @@ import { PrismicPreview } from '@prismicio/next';
 import { PrismicProvider } from '@prismicio/react';
 import { AppProps } from 'next/app';
 import { linkResolver, repositoryName } from '../services/prismicio';
+import { DefaultSeo } from 'next-seo';
 
 import '../styles/_global.scss';
 
@@ -12,6 +13,7 @@ import 'highlight.js/styles/github-dark.css';
 
 import { AppProvider } from '../context';
 import { Layout } from '../components/Layout';
+import { SEO } from '../../next-seo.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -29,12 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>
-            {/* <MenuMobile />
-            <Header /> */}
             <Layout>
+              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
             </Layout>
-            {/* <Footer /> */}
           </AppProvider>
         </PrismicPreview>
       </PrismicProvider>

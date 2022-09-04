@@ -13,6 +13,8 @@ export type Post = {
     };
     read_minutes: number;
     published_at: string;
+    meta_title?: string;
+    meta_description?: string;
     slices: any;
   };
 };

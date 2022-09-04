@@ -14,11 +14,11 @@
     "title": [
       {
         "type": "heading1",
-        "text": "Suddenly",
+        "text": "Automobile",
         "spans": []
       }
     ],
-    "read_minutes": "worker",
+    "read_minutes": "check",
     "featured_image": {
       "dimensions": {
         "width": 400,
@@ -26,7 +26,7 @@
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea"
+      "url": "https://images.unsplash.com/photo-1471897488648-5eae4ac6686b"
     },
     "category": {
       "id": "mock_document_id",
@@ -38,6 +38,8 @@
       "first_publication_date": "1970-01-01T00:00:01+0000",
       "last_publication_date": "1970-01-01T01:00:00+0000"
     },
-    "slices": []
+    "slices": [],
+    "meta_title": "closely",
+    "meta_description": "trade"
   }
 }

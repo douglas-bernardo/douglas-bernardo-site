@@ -2,8 +2,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 import * as prismic from '@prismicio/client';
 
-import Head from 'next/head';
-
 import { Post as PostProps } from '../../@types/types';
 import { MiniCard } from '../../components/MiniCard';
 import { createClient } from '../../services/prismicio';
@@ -12,25 +10,31 @@ import styles from './post.module.scss';
 import { SliceZone } from '@prismicio/react';
 import { components } from '../../../slices';
 import { timeDistance } from '../../helpers/utils';
+import { Page } from '../../components/Page';
 
 type Props = {
   post: PostProps;
+  slug: string;
   latestSimilarPosts: PostProps[];
 };
 
-export default function Post({ post, latestSimilarPosts }: Props) {
+export default function Post({ post, slug, latestSimilarPosts }: Props) {
   return (
-    <>
-      <Head>
-        <title>{`${prismicH.asText(post.data.title)} | Beancodes`}</title>
-      </Head>
-
+    <Page
+      title={`${prismicH.asText(post.data.title)} | Beancodes`}
+      description={post.data.meta_description}
+      path={`/${slug}`}
+      image={{
+        url: post.data.featured_image.url,
+        alt: post.data.featured_image.alt,
+      }}
+    >
       <main className={styles.container}>
         <article className={styles.post}>
           <h1 className="text">{prismicH.asText(post.data.title)}</h1>
 
           <div className={styles.publishedAt}>
-            <span>{timeDistance(post.last_publication_date)}</span>
+            <time>{timeDistance(post.last_publication_date)}</time>
             <div className={styles.dateDivider} />
             <span>{`${post.data.read_minutes || 0} min read`}</span>
           </div>
@@ -51,7 +55,7 @@ export default function Post({ post, latestSimilarPosts }: Props) {
           </div>
         </div>
       )}
-    </>
+    </Page>
   );
 }
 
@@ -75,6 +79,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       post,
       latestSimilarPosts,
+      slug: uid,
     },
     revalidate: 60 * 60 * 24, // 24h
   };
