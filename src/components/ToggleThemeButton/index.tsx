@@ -13,6 +13,7 @@ export function ToggleThemeButton() {
       type="button"
       onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeLight}`}
+      aria-label="change to light theme"
     >
       <ImSun />
     </button>
@@ -21,6 +22,7 @@ export function ToggleThemeButton() {
       type="button"
       onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeDark}`}
+      aria-label="change to dark theme"
     >
       <RiMoonFill />
     </button>

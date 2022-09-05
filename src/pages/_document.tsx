@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="pt-BR">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
@@ -17,11 +17,25 @@ export default class MyDocument extends Document {
           />
 
           <link
-            rel="shortcut icon"
-            href="/favicon-32x32.png"
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
             type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
           />
         </Head>
+
+        <link rel="manifest" href="/site.webmanifest"></link>
         <body>
           <Main />
           <NextScript />

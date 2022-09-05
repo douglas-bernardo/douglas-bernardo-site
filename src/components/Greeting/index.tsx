@@ -23,6 +23,7 @@ export function Greeting({ settings }: Props) {
               width={60}
               height={60}
               objectFit="cover"
+              alt="avatar photo"
             />
           )}
 
