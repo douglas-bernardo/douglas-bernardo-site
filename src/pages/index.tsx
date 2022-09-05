@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 
 import Link from 'next/link';
-import { Category, Post, Settings } from '../@types/types';
+import { CategoryProps, Post, Settings } from '../@types/types';
 
 import { Greeting } from '../components/Greeting';
 import { HorizontalCard } from '../components/HorizontalCard';
@@ -15,7 +15,7 @@ import { PrismicText } from '@prismicio/react';
 type Props = {
   posts: Post[];
   settings: Settings;
-  categories: Category[];
+  categories: CategoryProps[];
 };
 
 export default function Home({ posts, settings, categories }: Props) {
