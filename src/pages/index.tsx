@@ -52,13 +52,13 @@ export default function Home({ posts, settings, categories }: Props) {
 
             <ul>
               {posts.map((post) => (
-                <Link key={post.uid} href={`/posts/${post.uid}`}>
-                  <a>
-                    <li className="text">
+                <li key={post.uid} className="text">
+                  <Link href={`/posts/${post.uid}`}>
+                    <a>
                       <PrismicText field={post.data.title} />
-                    </li>
-                  </a>
-                </Link>
+                    </a>
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
