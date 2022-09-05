@@ -5,7 +5,8 @@ const description = 'Um blog de desenvolvedor - Douglas Bernardo';
 const openGraphImage = `${process.env.NEXT_PUBLIC_URL}/images/og-default.png`;
 
 export const SEO: DefaultSeoProps = {
-  title,
+  titleTemplate: `%s | ${title}`,
+  defaultTitle: title,
   description,
   openGraph: {
     type: 'website',

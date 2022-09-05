@@ -7,22 +7,19 @@ import * as prismic from '@prismicio/client';
 import { createClient } from '../../services/prismicio';
 
 import styles from './../../styles/page.module.scss';
-import { capitalize } from '../../helpers/utils';
-import { Category, Post } from '../../@types/types';
+
+import { Post } from '../../@types/types';
 import { HorizontalCard } from '../../components/HorizontalCard';
+import { Page } from '../../components/Page';
 
 type Props = {
   posts: Post[];
   category_name: string;
 };
 
-export default function Tutorials({ posts, category_name }: Props) {
+export default function Category({ posts, category_name }: Props) {
   return (
-    <>
-      <Head>
-        <title>{`${category_name} | Beancodes`}</title>
-      </Head>
-
+    <Page title={category_name}>
       <section className={styles.container}>
         <h3 className="text">
           {posts.length > 0
@@ -35,7 +32,7 @@ export default function Tutorials({ posts, category_name }: Props) {
           <img src="/images/working-from-home.svg" alt="under construction" />
         )}
       </section>
-    </>
+    </Page>
   );
 }
 
@@ -46,11 +43,11 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
-  const category = await client.getByUID('category', String(uid));
+  const selectedCategory = await client.getByUID('category', String(uid));
 
   const posts = await client.getAllByType('post', {
     limit: 10,
-    predicates: [prismic.predicate.at('my.post.category', category.id)],
+    predicates: [prismic.predicate.at('my.post.category', selectedCategory.id)],
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
@@ -59,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       posts,
-      category_name: prismicH.asText(category.data.category_name),
+      category_name: prismicH.asText(selectedCategory.data.category_name),
     },
   };
 };

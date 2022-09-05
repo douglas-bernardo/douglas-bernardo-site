@@ -19,9 +19,8 @@ export function Page({ title, description, path, image, children }: Props) {
         description={description}
         canonical={url}
         openGraph={{
-          url,
           title,
-          images: [image],
+          images: image ? [image] : undefined,
         }}
       />
       {children}
