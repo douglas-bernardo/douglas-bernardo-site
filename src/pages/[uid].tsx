@@ -11,7 +11,7 @@ type PageProps = {
 export default function Page({ slug }: PageProps) {
   return (
     <SEOPage
-      title={`${capitalize(String(slug))} | Beancodes`}
+      title={capitalize(String(slug))}
       description="Under Construction..."
       path={`/${slug}`}
     >

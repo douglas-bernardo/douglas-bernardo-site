@@ -50,7 +50,7 @@ export type Settings = {
   };
 };
 
-export type Category = {
+export type CategoryProps = {
   id: string;
   name: string;
   slug: string;

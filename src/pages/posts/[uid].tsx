@@ -21,7 +21,7 @@ type Props = {
 export default function Post({ post, slug, latestSimilarPosts }: Props) {
   return (
     <Page
-      title={`${prismicH.asText(post.data.title)} | Beancodes`}
+      title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
       path={`/${slug}`}
       image={{
