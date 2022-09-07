@@ -20,10 +20,10 @@ export function Greeting({ settings }: Props) {
           {prismicH.isFilled.image(profilePicture) && (
             <Image
               src={profilePicture.url}
+              alt={profilePicture.alt}
               width={60}
               height={60}
               objectFit="cover"
-              alt="avatar photo"
             />
           )}
 

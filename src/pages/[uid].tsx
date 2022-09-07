@@ -25,7 +25,6 @@ export default function Page({ slug }: PageProps) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { uid } = params;
-  console.log(uid);
 
   return {
     props: {

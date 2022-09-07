@@ -91,12 +91,14 @@
       line-height: 20px;
       color: var(--gray-800);
 
+      cursor: pointer;
+      list-style-type: '👉';
+      padding-inline-start: 2ch;
+
       transition: color 0.2s;
       &:hover {
         color: var(--gray-300);
       }
-
-      cursor: pointer;
     }
   }
 }

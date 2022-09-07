@@ -72,12 +72,14 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const client = createClient({ previewData });
 
   const posts = await client.getAllByType('post', { limit: 5 });
+
   const categoriesResponse = await client.getAllByType('category', {
     limit: 6,
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
   });
+
   const settings = await client.getSingle('settings');
 
   const categories = categoriesResponse.map((category) => {
@@ -94,5 +96,6 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
       settings,
       categories,
     },
+    revalidate: 60 * 60 * 24, // 24 h
   };
 };

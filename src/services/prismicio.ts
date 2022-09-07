@@ -14,15 +14,13 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
  * @type {prismicH.LinkResolverFunction}
  */
 // Update the Link Resolver to match your project's route structure
-export function linkResolver(doc) {
-  console.log(doc.type);
-
+export function linkResolver(doc: any) {
   switch (doc.type) {
-    case 'tutorials':
+    case 'category':
       return `/category/${doc.uid}`;
 
-    case 'posts':
-      return `/${doc.uid}`;
+    case 'post':
+      return `/posts/${doc.uid}`;
 
     default:
       return null;
