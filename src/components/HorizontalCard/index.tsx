@@ -24,7 +24,6 @@ export function HorizontalCard({ post }: Props) {
             objectFit="cover"
             src={post.data.featured_image.url}
             alt={post.data.featured_image.alt}
-            className="custom-img"
           />
         </a>
       </Link>

@@ -4,7 +4,7 @@ import * as prismic from '@prismicio/client';
 
 import { Post as PostProps } from '../../@types/types';
 import { MiniCard } from '../../components/MiniCard';
-import { createClient } from '../../services/prismicio';
+import { createClient, linkResolver } from '../../services/prismicio';
 
 import styles from './post.module.scss';
 import { SliceZone } from '@prismicio/react';
@@ -81,19 +81,23 @@ export const getStaticProps: GetStaticProps = async ({
       latestSimilarPosts,
       slug: uid,
     },
-    revalidate: 60 * 60 * 24, // 24h
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const client = createClient();
+  const client = createClient();
 
-  // const posts = await client.getAllByType('post');
+  const posts = await client.getAllByType('post', {
+    limit: 10,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+  });
 
-  // console.log(posts);
+  const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
 
   return {
-    paths: [],
+    paths,
     fallback: 'blocking',
   };
 };
