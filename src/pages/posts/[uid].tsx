@@ -31,7 +31,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
     >
       <main className={styles.container}>
         <article className={styles.post}>
-          <h1 className="text">{prismicH.asText(post.data.title)}</h1>
+          <h1 className="title">{prismicH.asText(post.data.title)}</h1>
 
           <div className={styles.publishedAt}>
             <time>{timeDistance(post.last_publication_date)}</time>

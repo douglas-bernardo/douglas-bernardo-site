@@ -7,14 +7,15 @@ import { FiCopy } from 'react-icons/fi';
 import { IoCheckbox } from 'react-icons/io5';
 
 import hljs from 'highlight.js/lib/core';
+
 import bash from 'highlight.js/lib/languages/bash';
-import typescript from 'highlight.js/lib/languages/typescript';
-import javascript from 'highlight.js/lib/languages/javascript';
-import json from 'highlight.js/lib/languages/json';
-import xml from 'highlight.js/lib/languages/xml';
-import dockerfile from 'highlight.js/lib/languages/dockerfile';
 import yaml from 'highlight.js/lib/languages/yaml';
+import javascript from 'highlight.js/lib/languages/javascript';
+import typescript from 'highlight.js/lib/languages/typescript';
 import csharp from 'highlight.js/lib/languages/csharp';
+import json from 'highlight.js/lib/languages/json';
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
+import xml from 'highlight.js/lib/languages/xml';
 
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('yaml', yaml);
