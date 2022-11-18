@@ -11,13 +11,19 @@ export const findFirstImage = (slices: any) => {
   }
 };
 
-export const getExcerpt = (slices: any): string => {
+export const getExcerpt = (slices: any, rangeMin = 0): string => {
   const text = slices
     .filter((slice) => slice.slice_type === 'text')
     .map((slice) => prismicH.asText(slice.primary.text))
     .join(' ');
 
-  const excerpt = text.substring(0, 300);
+  let excerpt = '';
+
+  if (rangeMin <= 30) {
+    excerpt = text.substring(0, 300);
+  } else {
+    excerpt = text.substring(0, 100);
+  }
 
   if (text.length > 300) {
     return excerpt.substring(0, excerpt.lastIndexOf(' ')) + '…';

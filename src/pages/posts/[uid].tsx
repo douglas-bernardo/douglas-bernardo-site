@@ -2,15 +2,16 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 import * as prismic from '@prismicio/client';
 
-import { Post as PostProps } from '../../@types/types';
-import { MiniCard } from '../../components/MiniCard';
-import { createClient, linkResolver } from '../../services/prismicio';
-
-import styles from './post.module.scss';
 import { SliceZone } from '@prismicio/react';
 import { components } from '../../../slices';
 import { timeDistance } from '../../helpers/utils';
+
+import { createClient, linkResolver } from '../../services/prismicio';
+import { Post as PostProps } from '../../@types/types';
+import { MiniCard } from '../../components/MiniCard';
 import { Page } from '../../components/Page';
+
+import styles from './post.module.scss';
 
 type Props = {
   post: PostProps;
@@ -31,7 +32,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
     >
       <main className={styles.container}>
         <article className={styles.post}>
-          <h1 className="title">{prismicH.asText(post.data.title)}</h1>
+          <h1 className="text">{prismicH.asText(post.data.title)}</h1>
 
           <div className={styles.publishedAt}>
             <time>{timeDistance(post.last_publication_date)}</time>

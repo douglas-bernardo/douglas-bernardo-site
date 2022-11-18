@@ -44,6 +44,10 @@
   h2,
   h3 {
     margin-bottom: 1.2rem;
+
+    @include medium {
+      padding: 0 22px;
+    }
   }
 
   p {
