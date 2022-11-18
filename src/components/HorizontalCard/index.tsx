@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import * as prismicH from '@prismicio/helpers';
+
 import { getExcerpt, timeDistance } from '../../helpers/utils';
 import { Post } from '../../@types/types';
 
@@ -12,7 +14,10 @@ type Props = {
 };
 
 export function HorizontalCard({ post }: Props) {
-  const excerpt = getExcerpt(post.data.slices);
+  const excerpt = getExcerpt(
+    post.data.slices,
+    prismicH.asText(post.data.title).length,
+  );
 
   return (
     <div className={styles.cardContainer}>
@@ -42,7 +47,7 @@ export function HorizontalCard({ post }: Props) {
           <span>{`${post.data.read_minutes || 0} min read`}</span>
         </div>
 
-        <p className="text">{excerpt}</p>
+        <p className={`text ${styles.excerpt}`}>{excerpt}</p>
       </div>
     </div>
   );

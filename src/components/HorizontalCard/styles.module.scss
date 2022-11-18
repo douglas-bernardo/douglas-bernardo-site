@@ -33,20 +33,6 @@
   padding: 5px 15px;
   gap: 7px;
 
-  p {
-    display: -webkit-box;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 25px;
-    word-wrap: break-word;
-
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   h2 {
     transition: color 0.2s;
     &:hover {
@@ -81,4 +67,18 @@
   height: 4px;
   border-radius: 50%;
   background-color: var(--gray-400);
+}
+
+.excerpt {
+  display: -webkit-box;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  word-wrap: break-word;
+
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  // text-overflow: ellipsis;
 }
