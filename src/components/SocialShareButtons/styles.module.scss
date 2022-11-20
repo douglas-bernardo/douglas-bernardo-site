@@ -26,7 +26,6 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      // background-color: var(--gray-200);
 
       transition: background-color 0.2s;
 
@@ -35,16 +34,17 @@
         height: 24px;
       }
 
-      &:hover {
-        background: var(--gray-300);
-      }
-
       .light {
         color: var(--gray-800);
       }
 
       .dark {
         color: var(--white);
+      }
+
+      &:hover {
+        color: var(--gray-800);
+        background: var(--gray-300);
       }
     }
   }

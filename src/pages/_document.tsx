@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR">
         <Head>
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -33,9 +34,9 @@ export default class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
+          <link rel="manifest" href="/site.webmanifest"></link>
         </Head>
 
-        <link rel="manifest" href="/site.webmanifest"></link>
         <body>
           <Main />
           <NextScript />
