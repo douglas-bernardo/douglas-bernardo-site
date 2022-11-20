@@ -12,6 +12,7 @@ import { MiniCard } from '../../components/MiniCard';
 import { Page } from '../../components/Page';
 
 import styles from './post.module.scss';
+import { SocialShareButtons } from '../../components/SocialShareButtons';
 
 type Props = {
   post: PostProps;
@@ -43,6 +44,12 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
           <div className={`${styles.postContent} text`}>
             <SliceZone slices={post.data.slices} components={components} />
           </div>
+          <SocialShareButtons
+            params={{
+              url: `${process.env.NEXT_PUBLIC_URL}/posts/${slug}`,
+              titlePost: prismicH.asText(post.data.title),
+            }}
+          />
         </article>
       </main>
 
