@@ -236,6 +236,16 @@ interface ImageSliceDefaultPrimary {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Caption field in *Image → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Optional - Caption under the image
+     * - **API ID Path**: image.primary.caption
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    caption: prismicT.RichTextField;
 }
 /**
  * Default variation for Image Slice
@@ -261,6 +271,16 @@ interface ImageSliceBunnerPrimary {
      *
      */
     image: prismicT.ImageField<never>;
+    /**
+     * Caption field in *Image → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: Optional - Caption under the image
+     * - **API ID Path**: image.primary.caption
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    caption: prismicT.RichTextField;
 }
 /**
  * Bunner variation for Image Slice

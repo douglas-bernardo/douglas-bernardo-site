@@ -75,7 +75,13 @@
           "fileName": "index",
           "extension": "tsx"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "/home/douglas/www/projects/bean-codes/slices/CodeBlock/default/preview.png",
+            "width": 833,
+            "height": 588
+          }
+        }
       },
       "image": {
         "library": "slices",
@@ -102,6 +108,15 @@
                     "constraint": {},
                     "thumbnails": []
                   }
+                },
+                "caption": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": "Optional - Caption under the image",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,strong,em"
+                  }
                 }
               },
               "items": {},
@@ -118,11 +133,17 @@
                   "type": "Image",
                   "config": {
                     "label": "Image",
-                    "constraint": {
-                      "width": 3000,
-                      "height": 1000
-                    },
+                    "constraint": {},
                     "thumbnails": []
+                  }
+                },
+                "caption": {
+                  "type": "StructuredText",
+                  "config": {
+                    "label": "Caption",
+                    "placeholder": "Optional - Caption under the image",
+                    "allowTargetBlank": true,
+                    "single": "paragraph,strong,em"
                   }
                 }
               },
@@ -146,8 +167,15 @@
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869"
-              }
+                "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68"
+              },
+              "caption": [
+                {
+                  "type": "paragraph",
+                  "text": "Ex et id sit Lorem dolor ea deserunt sint ex culpa ullamco excepteur commodo labore. Irure culpa irure eiusmod laboris culpa.",
+                  "spans": []
+                }
+              ]
             },
             "slice_type": "image"
           },
@@ -160,13 +188,20 @@
             "primary": {
               "image": {
                 "dimensions": {
-                  "width": 3000,
-                  "height": 1000
+                  "width": 900,
+                  "height": 500
                 },
                 "alt": null,
                 "copyright": null,
                 "url": "https://images.unsplash.com/photo-1547394765-185e1e68f34e"
-              }
+              },
+              "caption": [
+                {
+                  "type": "paragraph",
+                  "text": "Cupidatat ut excepteur non ullamco magna voluptate dolor amet pariatur fugiat.",
+                  "spans": []
+                }
+              ]
             },
             "slice_type": "image"
           }
@@ -178,8 +213,13 @@
         "screenshotPaths": {
           "default": {
             "path": "/home/douglas/www/projects/bean-codes/.slicemachine/assets/slices/Image/default/preview.png",
-            "width": 800,
-            "height": 530
+            "width": 1280,
+            "height": 800
+          },
+          "bunner": {
+            "path": "/home/douglas/www/projects/bean-codes/.slicemachine/assets/slices/Image/bunner/preview.png",
+            "width": 1280,
+            "height": 800
           }
         }
       },

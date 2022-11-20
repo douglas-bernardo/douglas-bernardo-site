@@ -8,19 +8,22 @@ import { Post } from '../../@types/types';
 import styles from './styles.module.scss';
 import { PrismicText } from '@prismicio/react';
 import Image from 'next/image';
+import { useTheme } from '../../context/theme';
 
 type Props = {
   post: Post;
 };
 
 export function HorizontalCard({ post }: Props) {
+  const { theme } = useTheme();
+
   const excerpt = getExcerpt(
     post.data.slices,
     prismicH.asText(post.data.title).length,
   );
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={`${styles.cardContainer} ${styles[theme]}`}>
       <Link href={`/posts/${post.uid}`}>
         <a>
           <Image
