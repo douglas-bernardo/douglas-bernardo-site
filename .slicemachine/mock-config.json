@@ -46,12 +46,25 @@
     },
     "Image": {
       "default": {
-        "primary": {}
+        "primary": {
+          "caption": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
       },
       "bunner": {
         "primary": {
           "image": {
             "content": "https://images.unsplash.com/photo-1547394765-185e1e68f34e"
+          },
+          "caption": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
           }
         }
       }

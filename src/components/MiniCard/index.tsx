@@ -16,7 +16,7 @@ export function MiniCard({ post }: Props) {
   return (
     <Link href={`/posts/${post.uid}`}>
       <a>
-        <div className={`${styles.cardContainer}`}>
+        <div className={`${styles.cardContainer} ${styles[theme]}`}>
           <img
             src={post.data.featured_image.url}
             alt={post.data.featured_image.alt}

@@ -14,7 +14,7 @@
   p {
     font-weight: 500;
     font-size: 14px;
-    line-height: 19px;
+    line-height: 20px;
     padding: 5px;
 
     display: -webkit-box;
@@ -25,10 +25,10 @@
   }
 }
 
-// .light {
-//   background-color: var(--white);
-// }
+.light {
+  background-color: var(--white);
+}
 
-// .dark {
-//   background-color: var(--gray-700);
-// }
+.dark {
+  background-color: var(--gray-700);
+}

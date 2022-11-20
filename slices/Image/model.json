@@ -18,6 +18,15 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Caption",
+            "placeholder": "Optional - Caption under the image",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
         }
       },
       "items": {},
@@ -34,11 +43,17 @@
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {
-              "width": 3000,
-              "height": 1000
-            },
+            "constraint": {},
             "thumbnails": []
+          }
+        },
+        "caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Caption",
+            "placeholder": "Optional - Caption under the image",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
           }
         }
       },
