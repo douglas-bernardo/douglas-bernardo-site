@@ -1,16 +1,15 @@
 import { ReactNode } from 'react';
-import { NextSeo } from 'next-seo';
+import { NextSeo, NextSeoProps } from 'next-seo';
 import { OpenGraphMedia } from 'next-seo/lib/types';
 
-type Props = {
+interface Props extends NextSeoProps {
   title?: string;
   description?: string;
   path?: string;
   children: ReactNode;
-  image?: OpenGraphMedia;
-};
+}
 
-export function Page({ title, description, path, image, children }: Props) {
+export function Page({ title, description, path, children, ...rest }: Props) {
   const url = `${process.env.NEXT_PUBLIC_URL}${path}`;
   return (
     <>
@@ -18,10 +17,7 @@ export function Page({ title, description, path, image, children }: Props) {
         title={title}
         description={description}
         canonical={url}
-        openGraph={{
-          title,
-          images: image ? [image] : undefined,
-        }}
+        {...rest}
       />
       {children}
     </>

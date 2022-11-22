@@ -11,6 +11,9 @@ import { createClient } from '../services/prismicio';
 
 import styles from './../styles/home.module.scss';
 import { PrismicText } from '@prismicio/react';
+import { Page } from '../components/Page';
+
+const openGraphImage1 = `${process.env.NEXT_PUBLIC_URL}/images/og-image-01.png`;
 
 type Props = {
   posts: Post[];
@@ -20,7 +23,24 @@ type Props = {
 
 export default function Home({ posts, settings, categories }: Props) {
   return (
-    <>
+    <Page
+      openGraph={{
+        type: 'website',
+        locale: 'pt_BR',
+        url: 'https://beancodes.com/',
+        site_name:
+          'Beancodes: Um blog de desenvolvedor de software por Douglas Bernardo',
+        images: [
+          {
+            url: openGraphImage1,
+            alt: 'Og Image Alt',
+            width: 500,
+            height: 500,
+            type: 'image/jpeg',
+          },
+        ],
+      }}
+    >
       <Greeting settings={settings} />
 
       <main className={styles.container}>
@@ -64,7 +84,7 @@ export default function Home({ posts, settings, categories }: Props) {
           </div>
         </section>
       </main>
-    </>
+    </Page>
   );
 }
 
