@@ -12,14 +12,21 @@ export const SEO: DefaultSeoProps = {
     type: 'website',
     locale: 'pt_BR',
     url: 'https://beancodes.com/',
-    site_name: 'Beancodes',
+    site_name:
+      'Beancodes: Um blog de desenvolvedor de software por Douglas Bernardo',
     images: [
       {
         url: openGraphImage1,
         alt: 'Og Image Alt',
         width: 500,
         height: 500,
+        type: 'image/jpeg',
       },
     ],
+  },
+  twitter: {
+    handle: '@beancodes',
+    site: '@beancodes',
+    cardType: 'summary_large_image',
   },
 };
