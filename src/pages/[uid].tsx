@@ -10,11 +10,7 @@ type PageProps = {
 
 export default function Page({ slug }: PageProps) {
   return (
-    <SEOPage
-      title={capitalize(String(slug))}
-      description="Under Construction..."
-      path={`/${slug}`}
-    >
+    <SEOPage title={capitalize(String(slug))} path={`/${slug}`}>
       <section className={styles.container}>
         <h2 className="text">Under Construction...</h2>
         <img src="/images/working-from-home.svg" alt="under construction" />
@@ -25,6 +21,7 @@ export default function Page({ slug }: PageProps) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { uid } = params;
+  console.log(uid);
 
   return {
     props: {

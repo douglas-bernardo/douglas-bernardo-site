@@ -26,13 +26,22 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
       path={`/post/${slug}`}
-      image={{
-        url: post.data.featured_image.url,
-        secureUrl: post.data.featured_image.url,
-        alt: post.data.featured_image.alt,
-        type: 'image/png',
-        width: post.data.featured_image.dimensions.width,
-        height: post.data.featured_image.dimensions.height,
+      openGraph={{
+        type: 'article',
+        article: {
+          publishedTime: post.first_publication_date,
+          tags: post.tags,
+        },
+        images: [
+          {
+            url: post.data.featured_image.url,
+            secureUrl: post.data.featured_image.url,
+            alt: post.data.featured_image.alt,
+            type: 'image/png',
+            width: post.data.featured_image.dimensions.width,
+            height: post.data.featured_image.dimensions.height,
+          },
+        ],
       }}
     >
       <main className={styles.container}>
