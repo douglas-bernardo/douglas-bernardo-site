@@ -25,10 +25,14 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
     <Page
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
-      path={`/${slug}`}
+      path={`/post/${slug}`}
       image={{
         url: post.data.featured_image.url,
+        secureUrl: post.data.featured_image.url,
         alt: post.data.featured_image.alt,
+        type: 'image/png',
+        width: post.data.featured_image.dimensions.width,
+        height: post.data.featured_image.dimensions.height,
       }}
     >
       <main className={styles.container}>
@@ -46,7 +50,8 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
           </div>
           <SocialShareButtons
             params={{
-              url: `${process.env.NEXT_PUBLIC_URL}/posts/${slug}`,
+              // url: `${process.env.NEXT_PUBLIC_URL}/posts/${slug}`,
+              url: `https://beancodes.com/posts/${slug}`,
               titlePost: prismicH.asText(post.data.title),
             }}
           />
@@ -75,6 +80,8 @@ export const getStaticProps: GetStaticProps = async ({
   const { uid } = params;
 
   const post = await client.getByUID('post', String(uid));
+  console.log(post);
+
   const latestSimilarPosts = await client.getAllByType('post', {
     limit: 3,
     orderings: [
