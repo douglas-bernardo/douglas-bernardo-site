@@ -32,6 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>
+            <DefaultSeo {...SEO} />
             <Layout>
               <NextNprogress
                 color="#29D"
@@ -40,7 +41,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 height={3}
                 showOnShallow
               />
-              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
             </Layout>
           </AppProvider>
