@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import NextNprogress from 'nextjs-progressbar';
 
 import { PrismicPreview } from '@prismicio/next';
 import { PrismicProvider } from '@prismicio/react';
@@ -32,6 +33,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>
             <Layout>
+              <NextNprogress
+                color="#29D"
+                startPosition={0.3}
+                stopDelayMs={200}
+                height={3}
+                showOnShallow
+              />
               <DefaultSeo {...SEO} />
               <Component {...pageProps} />
             </Layout>
