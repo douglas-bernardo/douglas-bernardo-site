@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 
 import * as prismicH from '@prismicio/helpers';
@@ -88,33 +88,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
   );
 }
 
-// export const getServerSideProps: GetServerSideProps = async ({
-//   params,
-//   previewData,
-// }) => {
-//   const client = createClient({ previewData });
-//   const { uid } = params;
-
-//   const post = await client.getByUID('post', String(uid));
-
-//   const latestSimilarPosts = await client.getAllByType('post', {
-//     limit: 3,
-//     orderings: [
-//       { field: 'document.first_publication_date', direction: 'desc' },
-//     ],
-//     predicates: [prismic.predicate.similar(post.id, 10)],
-//   });
-
-//   return {
-//     props: {
-//       post,
-//       latestSimilarPosts,
-//       slug: uid,
-//     },
-//   };
-// };
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params,
   previewData,
 }) => {
@@ -137,24 +111,50 @@ export const getStaticProps: GetStaticProps = async ({
       latestSimilarPosts,
       slug: uid,
     },
-    revalidate: 1,
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const client = createClient();
+// export const getStaticProps: GetStaticProps = async ({
+//   params,
+//   previewData,
+// }) => {
+//   const client = createClient({ previewData });
+//   const { uid } = params;
 
-  const posts = await client.getAllByType('post', {
-    limit: 10,
-    orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' },
-    ],
-  });
+//   const post = await client.getByUID('post', String(uid));
 
-  const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
+//   const latestSimilarPosts = await client.getAllByType('post', {
+//     limit: 3,
+//     orderings: [
+//       { field: 'document.first_publication_date', direction: 'desc' },
+//     ],
+//     predicates: [prismic.predicate.similar(post.id, 10)],
+//   });
 
-  return {
-    paths,
-    fallback: true,
-  };
-};
+//   return {
+//     props: {
+//       post,
+//       latestSimilarPosts,
+//       slug: uid,
+//     },
+//     revalidate: 1,
+//   };
+// };
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const client = createClient();
+
+//   const posts = await client.getAllByType('post', {
+//     limit: 10,
+//     orderings: [
+//       { field: 'document.first_publication_date', direction: 'desc' },
+//     ],
+//   });
+
+//   const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
+
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// };
