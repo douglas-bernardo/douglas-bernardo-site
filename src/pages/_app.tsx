@@ -9,7 +9,6 @@ import { linkResolver, repositoryName } from '../services/prismicio';
 import { DefaultSeo } from 'next-seo';
 
 import '../styles/_global.scss';
-
 import 'highlight.js/styles/github-dark.css';
 
 import { AppProvider } from '../context';
@@ -32,7 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>
-            <DefaultSeo {...SEO} />
             <Layout>
               <NextNprogress
                 color="#29D"
@@ -41,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 height={3}
                 showOnShallow
               />
+              <DefaultSeo {...SEO} />
               <Component {...pageProps} />
             </Layout>
           </AppProvider>

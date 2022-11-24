@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { NextSeo, NextSeoProps } from 'next-seo';
-import { OpenGraphMedia } from 'next-seo/lib/types';
 
 interface Props extends NextSeoProps {
   title?: string;
