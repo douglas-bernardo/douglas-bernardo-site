@@ -33,7 +33,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
     <Page
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
-      path={`/post/${slug}`}
+      path={`/posts/${slug}`}
       openGraph={{
         type: 'article',
         article: {
