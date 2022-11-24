@@ -138,7 +138,6 @@ export const getStaticProps: GetStaticProps = async ({
       latestSimilarPosts,
       slug: uid,
     },
-    revalidate: 1,
   };
 };
 
@@ -156,6 +155,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: 'blocking',
   };
 };
