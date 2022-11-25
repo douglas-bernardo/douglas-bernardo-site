@@ -42,7 +42,12 @@ export function Footer() {
             <FiLinkedin color="#121214" />
           </a>
         </nav>
-        <div>&copy; 2022 - present Douglas Bernardo. All Rights Reserved.</div>
+        <div>
+          &copy;{' '}
+          <p className="text">
+            2022 - present Douglas Bernardo. All Rights Reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

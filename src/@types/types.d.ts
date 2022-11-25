@@ -1,4 +1,14 @@
 import { RichTextField, ImageFieldImage } from '@prismicio/types';
+import {
+  AuthorDocumentData,
+  CategoryDocumentData,
+} from '../../.slicemachine/prismicio';
+
+interface Author {
+  data: {
+    author_name: RichTextField;
+  };
+}
 
 export type Post = {
   id: string;
@@ -15,6 +25,8 @@ export type Post = {
     meta_title?: string;
     meta_description?: string;
     slices: any;
+    author?: Author;
+    category?: CategoryDocumentData;
   };
 };
 
