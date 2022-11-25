@@ -71,15 +71,13 @@
   gap: 7px;
 
   margin-top: 2rem;
-
+  small,
   span,
   time {
     font-style: normal;
     font-size: 12px;
     line-height: 14px;
     font-weight: bold;
-
-    color: var(--gray-400);
   }
 }
 
@@ -87,7 +85,14 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: var(--gray-400);
+
+  &.light {
+    background: var(--gray-800);
+  }
+
+  &.dark {
+    background: var(--white);
+  }
 }
 
 .similarPosts {

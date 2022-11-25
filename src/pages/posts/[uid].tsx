@@ -1,5 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 import * as prismicH from '@prismicio/helpers';
 import * as prismic from '@prismicio/client';
@@ -13,8 +12,10 @@ import { Post as PostProps } from '../../@types/types';
 import { MiniCard } from '../../components/MiniCard';
 import { Page } from '../../components/Page';
 
-import styles from './post.module.scss';
+import { useTheme } from '../../context/theme';
 import { SocialShareButtons } from '../../components/SocialShareButtons';
+
+import styles from './post.module.scss';
 
 type Props = {
   post: PostProps;
@@ -23,11 +24,7 @@ type Props = {
 };
 
 export default function Post({ post, slug, latestSimilarPosts }: Props) {
-  // const router = useRouter();
-
-  // if (router.isFallback) {
-  //   return <div>Loading...</div>;
-  // }
+  const { theme } = useTheme();
 
   return (
     <Page
@@ -57,9 +54,17 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
           <h1 className="text">{prismicH.asText(post.data.title)}</h1>
 
           <div className={styles.publishedAt}>
-            <time>{timeDistance(post.last_publication_date)}</time>
-            <div className={styles.dateDivider} />
-            <span>{`${post.data.read_minutes || 0} min read`}</span>
+            <small className="text">
+              {prismicH.asText(post.data.author.data.author_name)}
+            </small>
+            <div className={`${styles.dateDivider} ${styles[theme]}`} />
+            <time className="text">
+              {timeDistance(post.last_publication_date)}
+            </time>
+            <div className={`${styles.dateDivider} ${styles[theme]}`} />
+            <span className="text">{`${
+              post.data.read_minutes || 0
+            } min read`}</span>
           </div>
 
           <div className={`${styles.postContent} text`}>
@@ -88,33 +93,6 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
   );
 }
 
-// export const getServerSideProps: GetServerSideProps = async ({
-//   params,
-//   previewData,
-// }) => {
-//   const client = createClient({ previewData });
-//   const { uid } = params;
-
-//   const post = await client.getByUID('post', String(uid));
-//   console.log(post);
-
-//   const latestSimilarPosts = await client.getAllByType('post', {
-//     limit: 3,
-//     orderings: [
-//       { field: 'document.first_publication_date', direction: 'desc' },
-//     ],
-//     predicates: [prismic.predicate.similar(post.id, 10)],
-//   });
-
-//   return {
-//     props: {
-//       post,
-//       latestSimilarPosts,
-//       slug: uid,
-//     },
-//   };
-// };
-
 export const getStaticProps: GetStaticProps = async ({
   params,
   previewData,
@@ -122,7 +100,9 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
-  const post = await client.getByUID('post', String(uid));
+  const post = await client.getByUID('post', String(uid), {
+    fetchLinks: 'author.author_name',
+  });
 
   const latestSimilarPosts = await client.getAllByType('post', {
     limit: 3,
