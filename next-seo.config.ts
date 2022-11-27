@@ -29,4 +29,9 @@ export const SEO: DefaultSeoProps = {
     site: '@beancodes',
     cardType: 'summary_large_image',
   },
+  robotsProps: {
+    maxSnippet: -1,
+    maxVideoPreview: -1,
+    maxImagePreview: 'standard',
+  },
 };
