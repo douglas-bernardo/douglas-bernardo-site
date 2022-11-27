@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 import * as prismicH from '@prismicio/helpers';
 import * as prismic from '@prismicio/client';
@@ -36,6 +36,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
         article: {
           publishedTime: post.first_publication_date,
           tags: post.tags,
+          authors: [prismicH.asText(post.data.author.data.author_name)],
         },
         images: [
           {
@@ -43,8 +44,8 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
             secureUrl: post.data.featured_image.url,
             alt: post.data.featured_image.alt,
             type: 'image/png',
-            width: post.data.featured_image.dimensions.width,
-            height: post.data.featured_image.dimensions.height,
+            // width: 500, // post.data.featured_image.dimensions.width,
+            // height: 500, //post.data.featured_image.dimensions.height,
           },
         ],
       }}
@@ -93,7 +94,7 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({
+export const getStaticProps: GetStaticProps = async ({
   params,
   previewData,
 }) => {
@@ -121,48 +122,20 @@ export const getServerSideProps: GetServerSideProps = async ({
   };
 };
 
-// export const getStaticProps: GetStaticProps = async ({
-//   params,
-//   previewData,
-// }) => {
-//   const client = createClient({ previewData });
-//   const { uid } = params;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const client = createClient();
 
-//   const post = await client.getByUID('post', String(uid), {
-//     fetchLinks: 'author.author_name',
-//   });
+  const posts = await client.getAllByType('post', {
+    limit: 10,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+  });
 
-//   const latestSimilarPosts = await client.getAllByType('post', {
-//     limit: 3,
-//     orderings: [
-//       { field: 'document.first_publication_date', direction: 'desc' },
-//     ],
-//     predicates: [prismic.predicate.similar(post.id, 10)],
-//   });
+  const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
 
-//   return {
-//     props: {
-//       post,
-//       latestSimilarPosts,
-//       slug: uid,
-//     },
-//   };
-// };
-
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const client = createClient();
-
-//   const posts = await client.getAllByType('post', {
-//     limit: 10,
-//     orderings: [
-//       { field: 'document.first_publication_date', direction: 'desc' },
-//     ],
-//   });
-
-//   const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
-
-//   return {
-//     paths,
-//     fallback: 'blocking',
-//   };
-// };
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+};
