@@ -33,7 +33,7 @@
         "config": {
           "label": "Featured Image",
           "constraint": {
-            "width": 400
+            "width": 0
           },
           "thumbnails": []
         }

@@ -43,9 +43,9 @@ export default function Post({ post, slug, latestSimilarPosts }: Props) {
             url: post.data.featured_image.url,
             secureUrl: post.data.featured_image.url,
             alt: post.data.featured_image.alt,
-            type: 'image/png',
-            // width: 500, // post.data.featured_image.dimensions.width,
-            // height: 500, //post.data.featured_image.dimensions.height,
+            type: 'image/jpeg',
+            width: post.data.featured_image.dimensions.width,
+            height: post.data.featured_image.dimensions.height,
           },
         ],
       }}
@@ -104,6 +104,7 @@ export const getStaticProps: GetStaticProps = async ({
   const post = await client.getByUID('post', String(uid), {
     fetchLinks: 'author.author_name',
   });
+  console.log(post);
 
   const latestSimilarPosts = await client.getAllByType('post', {
     limit: 3,
