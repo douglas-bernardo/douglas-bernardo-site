@@ -8,7 +8,7 @@ import { components } from '../../../slices';
 import { timeDistance } from '../../helpers/utils';
 
 import { createClient, linkResolver } from '../../services/prismicio';
-import { Post as PostProps } from '../../@types/types';
+import { Post as PostProps, Settings } from '../../@types/types';
 import { MiniCard } from '../../components/MiniCard';
 import { Page } from '../../components/Page';
 
@@ -20,14 +20,21 @@ import styles from './post.module.scss';
 type Props = {
   post: PostProps;
   slug: string;
+  settings: Settings;
   latestSimilarPosts: PostProps[];
 };
 
-export default function Post({ post, slug, latestSimilarPosts }: Props) {
+export default function Post({
+  post,
+  slug,
+  settings,
+  latestSimilarPosts,
+}: Props) {
   const { theme } = useTheme();
 
   return (
     <Page
+      settings={settings}
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
       path={`/posts/${slug}`}
@@ -101,6 +108,8 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
+  const settings = await client.getSingle('settings');
+
   const post = await client.getByUID('post', String(uid), {
     fetchLinks: 'author.author_name',
   });
@@ -115,6 +124,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
+      settings,
       post,
       latestSimilarPosts,
       slug: uid,

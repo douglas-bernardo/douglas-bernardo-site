@@ -35,6 +35,7 @@ export type Settings = {
     greeting_text: RichTextField;
     description: RichTextField;
     profilePicture: ImageFieldImage;
+    copyright: RichTextField;
   };
 };
 

@@ -195,6 +195,17 @@ interface SettingsDocumentData {
      *
      */
     profilePicture: prismicT.ImageField<never>;
+    /**
+     * Copyright field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.copyright
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    copyright: prismicT.RichTextField;
 }
 /**
  * Settings document from Prismic

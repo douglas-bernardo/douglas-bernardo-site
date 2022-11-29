@@ -7,24 +7,31 @@ import { createClient } from '../../services/prismicio';
 
 import styles from './../../styles/page.module.scss';
 
-import { Post } from '../../@types/types';
+import { Post, Settings } from '../../@types/types';
 import { HorizontalCard } from '../../components/HorizontalCard';
 import { Page } from '../../components/Page';
 
 type Props = {
   posts: Post[];
+  settings: Settings;
   category_name: string;
 };
 
-export default function Category({ posts, category_name }: Props) {
+export default function Category({ posts, settings, category_name }: Props) {
   return (
-    <Page title={category_name}>
+    <Page settings={settings} title={category_name}>
       <section className={styles.container}>
-        <h3 className="text">
-          {posts.length > 0
-            ? category_name.toUpperCase()
-            : 'Under Construction...'}
-        </h3>
+        {posts.length > 0 ? (
+          <div>
+            <h1 className="text">{category_name.toUpperCase()}</h1>
+            <span>{`${posts.length} ${
+              posts.length > 1 ? 'Posts' : 'Post'
+            }`}</span>
+          </div>
+        ) : (
+          <h1>Under Construction...</h1>
+        )}
+
         {posts.length > 0 ? (
           posts.map((post) => <HorizontalCard key={post.uid} post={post} />)
         ) : (
@@ -42,6 +49,8 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
+  const settings = await client.getSingle('settings');
+
   const selectedCategory = await client.getByUID('category', String(uid));
 
   const posts = await client.getAllByType('post', {
@@ -54,6 +63,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
+      settings,
       posts,
       category_name: prismicH.asText(selectedCategory.data.category_name),
     },

@@ -7,19 +7,29 @@ import { Page as SEOPageComponent } from '../components/Page';
 import { HorizontalCard } from '../components/HorizontalCard';
 
 import { capitalize } from '../helpers/utils';
-import { Post } from '../@types/types';
+import { Post, Settings } from '../@types/types';
 
 import styles from './../styles/page.module.scss';
 
 type PageProps = {
   posts: Post[];
   slug: string;
+  settings: Settings;
   categoryName: string;
 };
 
-export default function Page({ posts, slug, categoryName }: PageProps) {
+export default function Page({
+  posts,
+  slug,
+  settings,
+  categoryName,
+}: PageProps) {
   return (
-    <SEOPageComponent title={capitalize(String(slug))} path={`/${slug}`}>
+    <SEOPageComponent
+      settings={settings}
+      title={capitalize(String(slug))}
+      path={`/${slug}`}
+    >
       <section className={styles.container}>
         {posts.length > 0 ? (
           <div>
@@ -60,11 +70,14 @@ export const getStaticProps: GetStaticProps = async ({
     ],
   });
 
+  const settings = await client.getSingle('settings');
+
   return {
     props: {
       posts,
       slug: uid,
       categoryName,
+      settings,
     },
   };
 };
