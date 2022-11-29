@@ -33,6 +33,15 @@
           },
           "thumbnails": []
         }
+      },
+      "copyright": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Copyright",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
       }
     }
   }

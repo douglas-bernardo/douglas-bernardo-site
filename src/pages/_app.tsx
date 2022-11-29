@@ -12,7 +12,6 @@ import '../styles/_global.scss';
 import 'highlight.js/styles/github-dark.css';
 
 import { AppProvider } from '../context';
-import { Layout } from '../components/Layout';
 import { SEO } from '../../next-seo.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -31,17 +30,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       >
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>
-            <Layout>
-              <NextNprogress
-                color="#29D"
-                startPosition={0.3}
-                stopDelayMs={200}
-                height={3}
-                showOnShallow
-              />
-              <DefaultSeo {...SEO} />
-              <Component {...pageProps} />
-            </Layout>
+            <NextNprogress
+              color="#29D"
+              startPosition={0.3}
+              stopDelayMs={200}
+              height={3}
+              showOnShallow
+            />
+            <DefaultSeo {...SEO} />
+            <Component {...pageProps} />
           </AppProvider>
         </PrismicPreview>
       </PrismicProvider>

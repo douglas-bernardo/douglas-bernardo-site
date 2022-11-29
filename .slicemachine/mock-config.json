@@ -20,6 +20,12 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
+      },
+      "copyright": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "category": {

@@ -53,7 +53,7 @@ interface CategoryDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type CategoryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<CategoryDocumentData>, "category", Lang>;
+export type CategoryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
 /** Content for Post documents */
 interface PostDocumentData {
     /**
@@ -195,6 +195,17 @@ interface SettingsDocumentData {
      *
      */
     profilePicture: prismicT.ImageField<never>;
+    /**
+     * Copyright field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.copyright
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    copyright: prismicT.RichTextField;
 }
 /**
  * Settings document from Prismic

@@ -4,7 +4,11 @@ import { FiLinkedin } from 'react-icons/fi';
 import styles from './styles.module.scss';
 import { useTheme } from '../../context/theme';
 
-export function Footer() {
+type Props = {
+  copyright: string;
+};
+
+export function Footer({ copyright }: Props) {
   const { theme } = useTheme();
   return (
     <footer className={`${styles.footerContainer} ${styles[theme]}`}>
@@ -43,10 +47,7 @@ export function Footer() {
           </a>
         </nav>
         <div>
-          &copy;{' '}
-          <p className="text">
-            2022 - present Douglas Bernardo. All Rights Reserved.
-          </p>
+          &copy;<p className="text">{copyright}</p>
         </div>
       </div>
     </footer>

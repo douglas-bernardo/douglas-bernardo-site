@@ -21,7 +21,7 @@ type Props = {
 
 export default function Home({ posts, settings, categories }: Props) {
   return (
-    <Page>
+    <Page settings={settings}>
       <Greeting settings={settings} />
 
       <main className={styles.container}>
@@ -75,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
   const posts = await client.getAllByType('post', { limit: 5 });
 
   const categoriesResponse = await client.getAllByType('category', {
-    limit: 6,
+    limit: 10,
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
