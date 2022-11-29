@@ -5,6 +5,13 @@
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
       "category_name": {
         "type": "StructuredText",
         "config": {

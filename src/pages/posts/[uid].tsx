@@ -104,7 +104,6 @@ export const getStaticProps: GetStaticProps = async ({
   const post = await client.getByUID('post', String(uid), {
     fetchLinks: 'author.author_name',
   });
-  console.log(post);
 
   const latestSimilarPosts = await client.getAllByType('post', {
     limit: 3,

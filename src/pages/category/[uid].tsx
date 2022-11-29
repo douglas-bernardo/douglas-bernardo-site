@@ -1,7 +1,6 @@
 import { GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 
-import Head from 'next/head';
 import * as prismic from '@prismicio/client';
 
 import { createClient } from '../../services/prismicio';

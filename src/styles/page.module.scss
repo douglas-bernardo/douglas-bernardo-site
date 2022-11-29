@@ -11,14 +11,18 @@
   align-items: center;
   justify-content: center;
 
-  h3 {
-    font-weight: 700;
-    font-size: 22px;
+  h1 {
+    font-weight: 600;
+    font-size: 2rem;
     line-height: 20px;
-    display: flex;
-    align-items: center;
     letter-spacing: 0.1em;
+  }
 
+  > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2.5rem;
   }
 
