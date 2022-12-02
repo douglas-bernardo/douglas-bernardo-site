@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { PrismicText, PrismicRichText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 
 import Link from 'next/link';
@@ -7,26 +8,33 @@ import { CategoryProps, Post, Settings } from '../@types/types';
 import { Greeting } from '../components/Greeting';
 import { HorizontalCard } from '../components/HorizontalCard';
 import { LinkButton } from '../components/LinkButton';
-import { createClient } from '../services/prismicio';
-
-import styles from './../styles/home.module.scss';
-import { PrismicText } from '@prismicio/react';
 import { Page } from '../components/Page';
 
+import { createClient } from '../services/prismicio';
+import { filterTextSlice } from '../helpers/utils';
+import {
+  PageDocument,
+  PageDocumentData,
+  TextSlice,
+} from '../../.slicemachine/prismicio';
+
+import styles from './../styles/home.module.scss';
+
 type Props = {
+  page?: PageDocument<string>;
   posts: Post[];
   settings: Settings;
   categories: CategoryProps[];
 };
 
-export default function Home({ posts, settings, categories }: Props) {
+export default function Index({ page, posts, settings, categories }: Props) {
   return (
     <Page settings={settings}>
       <Greeting settings={settings} />
 
       <main className={styles.container}>
         <section className={styles.latestPosts}>
-          <h3 className="text">LATEST</h3>
+          <h3 className="text">{filterTextSlice(page, 'list_latest_posts')}</h3>
           <div>
             {posts.map((post) => (
               <HorizontalCard key={post.uid} post={post} />
@@ -36,7 +44,7 @@ export default function Home({ posts, settings, categories }: Props) {
 
         <section className={styles.sideLinks}>
           <div className={styles.categoriesContainer}>
-            <h3 className="text">CATEGORIES</h3>
+            <h3 className="text">{filterTextSlice(page, 'list_categories')}</h3>
 
             <div>
               {categories.map((category) => (
@@ -49,7 +57,9 @@ export default function Home({ posts, settings, categories }: Props) {
             </div>
           </div>
           <div className={styles.popularContainer}>
-            <h3 className="text">POPULAR</h3>
+            <h3 className="text">
+              {filterTextSlice(page, 'list_popular_posts')}
+            </h3>
 
             <ul>
               {posts.map((post) => (
@@ -69,10 +79,16 @@ export default function Home({ posts, settings, categories }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ previewData }) => {
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  previewData,
+}) => {
   const client = createClient({ previewData });
 
+  const page = await client.getByUID('page', 'home', { lang: locale });
+
   const posts = await client.getAllByType('post', { limit: 5 });
+  const settings = await client.getSingle('settings');
 
   const categoriesResponse = await client.getAllByType('category', {
     limit: 10,
@@ -80,8 +96,6 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
   });
-
-  const settings = await client.getSingle('settings');
 
   const categories = categoriesResponse.map((category) => {
     return {
@@ -93,6 +107,7 @@ export const getStaticProps: GetStaticProps = async ({ previewData }) => {
 
   return {
     props: {
+      page,
       posts,
       settings,
       categories,

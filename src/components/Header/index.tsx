@@ -40,10 +40,10 @@ export function Header() {
               <a title="DevOps">DevOps</a>
             </ActiveLink>
           </nav>
-        </div>
 
-        <div className={styles.toggleDarkThemeButton}>
-          <ToggleThemeButton />
+          <div className={styles.toggleDarkThemeButton}>
+            <ToggleThemeButton />
+          </div>
         </div>
       </div>
     </header>
