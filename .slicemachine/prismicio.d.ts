@@ -54,6 +54,68 @@ interface CategoryDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type CategoryDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
+/** Content for Page documents */
+interface PageDocumentData {
+    /**
+     * Title field in *Page*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Parent field in *Page*
+     *
+     * - **Field Type**: Content Relationship
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.parent
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    parent: prismicT.RelationField<"page">;
+    /**
+     * Slice Zone field in *Page*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+    /**
+     * Tags field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.tags
+     * - **Tab**: Related Tags
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    tags: prismicT.KeyTextField;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = TextSlice;
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 /** Content for Post documents */
 interface PostDocumentData {
     /**
@@ -217,7 +279,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
-export type AllDocumentTypes = AuthorDocument | CategoryDocument | PostDocument | SettingsDocument;
+export type AllDocumentTypes = AuthorDocument | CategoryDocument | PageDocument | PostDocument | SettingsDocument;
 /**
  * Primary content in CodeBlock → Primary
  *
@@ -366,6 +428,16 @@ interface TextSliceDefaultPrimary {
      *
      */
     text: prismicT.RichTextField;
+    /**
+     * label field in *Text → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: text.primary.label
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    label: prismicT.KeyTextField;
 }
 /**
  * Default variation for Text Slice
@@ -395,6 +467,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { AuthorDocumentData, AuthorDocument, CategoryDocumentData, CategoryDocument, PostDocumentData, PostDocumentDataSlicesSlice, PostDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CodeBlockSliceDefaultPrimary, CodeBlockSliceDefault, CodeBlockSliceVariation, CodeBlockSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBunnerPrimary, ImageSliceBunner, ImageSliceVariation, ImageSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
+        export type { AuthorDocumentData, AuthorDocument, CategoryDocumentData, CategoryDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, PostDocumentData, PostDocumentDataSlicesSlice, PostDocument, SettingsDocumentData, SettingsDocument, AllDocumentTypes, CodeBlockSliceDefaultPrimary, CodeBlockSliceDefault, CodeBlockSliceVariation, CodeBlockSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceBunnerPrimary, ImageSliceBunner, ImageSliceVariation, ImageSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice };
     }
 }

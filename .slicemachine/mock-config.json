@@ -35,6 +35,14 @@
           "blocks": 1
         }
       }
+    },
+    "page": {
+      "title": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
     }
   },
   "slices": {

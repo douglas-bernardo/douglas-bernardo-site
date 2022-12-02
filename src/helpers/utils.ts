@@ -2,6 +2,7 @@ import { format, parseISO, formatDistance } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import * as prismicH from '@prismicio/helpers';
+import { PageDocument, TextSlice } from '../../.slicemachine/prismicio';
 
 export const findFirstImage = (slices: any) => {
   const imageSlice = slices.find((slice) => slice.slice_type === 'image');
@@ -49,4 +50,12 @@ export function timeDistance(date: string): string {
 
 export function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function filterTextSlice(document: PageDocument<string>, key: string) {
+  const text = document?.data.slices.find(
+    (s: TextSlice) => s.primary.label === key,
+  );
+
+  return prismicH.asText(text?.primary.text) || '';
 }
