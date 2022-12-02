@@ -29,7 +29,7 @@ export default function Page({ page, posts, slug, settings }: PageProps) {
     >
       <section className={styles.container}>
         {posts.length > 0 ? (
-          <div>
+          <div className={styles.header}>
             <h1 className="text">{prismicH.asText(page.data.title)}</h1>
             <span>{`${posts.length} ${
               posts.length > 1 ? 'Posts' : 'Post'
