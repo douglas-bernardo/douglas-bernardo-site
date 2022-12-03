@@ -10,6 +10,11 @@ import styles from './styles.module.scss';
 import { linkResolver } from '../../services/prismicio';
 import { FlagIcon } from '../FlagIcon';
 
+const flagTitle = {
+  'pt-br': 'Veja em Português',
+  'en-us': 'View in English',
+};
+
 type Props = {
   alternateLanguages?: AlternateLanguage<'page', string>[];
 };
@@ -62,7 +67,7 @@ export function Header({ alternateLanguages }: Props) {
                   href={linkResolver(lang)}
                   locale={lang.lang}
                 >
-                  <a>
+                  <a title={flagTitle[lang.lang]}>
                     <FlagIcon lang={lang.lang} />
                   </a>
                 </Link>
