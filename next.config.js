@@ -33,7 +33,7 @@ const nextConfig = async () => {
       domains: [
         {
           domain: 'beancodes.com',
-          defaultLocale: 'pt-BR',
+          defaultLocale: locales[0],
           http: true,
         },
       ],
