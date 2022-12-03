@@ -23,6 +23,7 @@ type PageProps = {
 export default function Page({ page, posts, slug, settings }: PageProps) {
   return (
     <SEOPageComponent
+      alternateLanguages={page.alternate_languages}
       settings={settings}
       title={prismicH.asText(page.data.title)}
       path={`/${slug}`}

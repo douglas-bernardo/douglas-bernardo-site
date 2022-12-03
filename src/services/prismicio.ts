@@ -15,6 +15,13 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 // Update the Link Resolver to match your project's route structure
 export function linkResolver(doc: any) {
   switch (doc.type) {
+    case 'page':
+      if (doc.uid === 'home') {
+        return '/';
+      } else {
+        return `/${doc.uid}`;
+      }
+
     case 'category':
       return `/category/${doc.uid}`;
 
@@ -22,7 +29,7 @@ export function linkResolver(doc: any) {
       return `/posts/${doc.uid}`;
 
     default:
-      return null;
+      null;
   }
 }
 

@@ -1,11 +1,18 @@
+import { AlternateLanguage } from '@prismicio/types';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../context/theme';
+import { linkResolver } from '../../services/prismicio';
+import { FlagIcon } from '../FlagIcon';
 import { ToggleThemeButton } from '../ToggleThemeButton';
 
 import styles from './styles.module.scss';
 
-export function MenuMobile() {
+type Props = {
+  alternateLanguages?: AlternateLanguage<'page', string>[];
+};
+
+export function MenuMobile({ alternateLanguages }: Props) {
   const { theme } = useTheme();
   const [active, setActive] = useState(false);
 
@@ -56,6 +63,18 @@ export function MenuMobile() {
 
         <div className={`${styles.themeButton} ${active && styles.active}`}>
           <ToggleThemeButton />
+          {alternateLanguages?.length > 0 &&
+            alternateLanguages.map((lang) => (
+              <Link
+                key={lang.lang}
+                href={linkResolver(lang)}
+                locale={lang.lang}
+              >
+                <a>
+                  <FlagIcon lang={lang.lang} />
+                </a>
+              </Link>
+            ))}
         </div>
       </div>
     </>

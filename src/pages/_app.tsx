@@ -10,9 +10,18 @@ import { DefaultSeo } from 'next-seo';
 
 import '../styles/_global.scss';
 import 'highlight.js/styles/github-dark.css';
+import 'flag-icons/css/flag-icons.css';
 
 import { AppProvider } from '../context';
 import { SEO } from '../../next-seo.config';
+
+function NextLinkShim({ href, children, locale, ...props }) {
+  return (
+    <Link href={href} locale={locale}>
+      <a {...props}>{children}</a>
+    </Link>
+  );
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -22,11 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <PrismicProvider
         linkResolver={linkResolver}
-        internalLinkComponent={({ href, ...props }) => (
-          <Link href={href}>
-            <a {...props} />
-          </Link>
-        )}
+        internalLinkComponent={NextLinkShim}
       >
         <PrismicPreview repositoryName={repositoryName}>
           <AppProvider>

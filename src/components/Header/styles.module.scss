@@ -69,4 +69,10 @@
       display: none;
     }
   }
+
+  .alternateLanguages {
+    @include medium {
+      display: none;
+    }
+  }
 }

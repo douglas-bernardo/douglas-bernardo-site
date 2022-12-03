@@ -22,7 +22,7 @@ export default function Category({ posts, settings, category_name }: Props) {
     <Page settings={settings} title={category_name}>
       <section className={styles.container}>
         {posts.length > 0 ? (
-          <div>
+          <div className={styles.header}>
             <h1 className="text">{category_name.toUpperCase()}</h1>
             <span>{`${posts.length} ${
               posts.length > 1 ? 'Posts' : 'Post'

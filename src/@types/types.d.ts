@@ -1,4 +1,8 @@
-import { RichTextField, ImageFieldImage } from '@prismicio/types';
+import {
+  RichTextField,
+  ImageFieldImage,
+  AlternateLanguage,
+} from '@prismicio/types';
 import {
   AuthorDocumentData,
   CategoryDocumentData,
@@ -17,6 +21,7 @@ export type Post = {
   tags: string[];
   first_publication_date: string;
   last_publication_date: string;
+  alternate_languages: AlternateLanguage<'page', string>[];
   data: {
     title: RichTextField;
     featured_image: ImageFieldImage;

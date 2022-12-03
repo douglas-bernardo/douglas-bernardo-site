@@ -34,6 +34,7 @@ export default function Post({
 
   return (
     <Page
+      alternateLanguages={post.alternate_languages}
       settings={settings}
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
@@ -102,6 +103,7 @@ export default function Post({
 }
 
 export const getStaticProps: GetStaticProps = async ({
+  locale,
   params,
   previewData,
 }) => {
@@ -112,6 +114,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const post = await client.getByUID('post', String(uid), {
     fetchLinks: 'author.author_name',
+    lang: locale,
   });
 
   const latestSimilarPosts = await client.getAllByType('post', {

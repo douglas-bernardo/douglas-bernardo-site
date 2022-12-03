@@ -1,11 +1,20 @@
-import styles from './styles.module.scss';
+import Link from 'next/link';
+import { AlternateLanguage } from '@prismicio/types';
 
 import { ToggleThemeButton } from '../ToggleThemeButton';
 import { ActiveLink } from '../ActiveLink';
-import Link from 'next/link';
+
 import { useTheme } from '../../context/theme';
 
-export function Header() {
+import styles from './styles.module.scss';
+import { linkResolver } from '../../services/prismicio';
+import { FlagIcon } from '../FlagIcon';
+
+type Props = {
+  alternateLanguages?: AlternateLanguage<'page', string>[];
+};
+
+export function Header({ alternateLanguages }: Props) {
   const { theme } = useTheme();
   return (
     <header className={`${styles.headerContainer} ${styles[theme]}`}>
@@ -43,6 +52,21 @@ export function Header() {
 
           <div className={styles.toggleDarkThemeButton}>
             <ToggleThemeButton />
+          </div>
+
+          <div className={styles.alternateLanguages}>
+            {alternateLanguages?.length > 0 &&
+              alternateLanguages.map((lang) => (
+                <Link
+                  key={lang.lang}
+                  href={linkResolver(lang)}
+                  locale={lang.lang}
+                >
+                  <a>
+                    <FlagIcon lang={lang.lang} />
+                  </a>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
