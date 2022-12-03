@@ -29,7 +29,7 @@ type Props = {
 
 export default function Index({ page, posts, settings, categories }: Props) {
   return (
-    <Page settings={settings}>
+    <Page settings={settings} alternateLanguages={page.alternate_languages}>
       <Greeting settings={settings} />
 
       <main className={styles.container}>

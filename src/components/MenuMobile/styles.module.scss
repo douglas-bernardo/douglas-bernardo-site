@@ -130,8 +130,11 @@
 }
 
 .themeButton {
+  display: flex;
+  align-items: center;
   margin-top: 90px;
   opacity: 0;
+  gap: 1rem;
 
   transition: opacity 600ms ease-in-out 600ms;
 
