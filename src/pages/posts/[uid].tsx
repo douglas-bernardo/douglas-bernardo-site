@@ -150,7 +150,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ],
   });
 
-  const paths = posts.map((article) => prismicH.asLink(article, linkResolver));
+  const paths = posts.map((post) => prismicH.asLink(post, linkResolver));
 
   return {
     paths,
