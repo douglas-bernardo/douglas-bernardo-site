@@ -14,6 +14,7 @@ import 'flag-icons/css/flag-icons.css';
 
 import { AppProvider } from '../context';
 import { SEO } from '../../next-seo.config';
+import { GoogleAnalytics } from '../components/GoogleAnalytics';
 
 function NextLinkShim({ href, children, locale, ...props }) {
   return (
@@ -43,6 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               showOnShallow
             />
             <DefaultSeo {...SEO} />
+            <GoogleAnalytics />
             <Component {...pageProps} />
           </AppProvider>
         </PrismicPreview>
