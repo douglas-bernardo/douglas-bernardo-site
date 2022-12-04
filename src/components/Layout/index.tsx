@@ -13,7 +13,7 @@ import { AlternateLanguage } from '@prismicio/types';
 type Props = {
   settings: Settings;
   children: ReactNode;
-  alternateLanguages: AlternateLanguage<'page', string>[];
+  alternateLanguages?: AlternateLanguage<string, string>[];
 };
 
 export function Layout({ settings, alternateLanguages, children }: Props) {

@@ -268,6 +268,17 @@ interface SettingsDocumentData {
      *
      */
     copyright: prismicT.RichTextField;
+    /**
+     * Share Message field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.share_message
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    share_message: prismicT.RichTextField;
 }
 /**
  * Settings document from Prismic

@@ -16,7 +16,7 @@ const flagTitle = {
 };
 
 type Props = {
-  alternateLanguages?: AlternateLanguage<'page', string>[];
+  alternateLanguages?: AlternateLanguage<string, string>[];
 };
 
 export function Header({ alternateLanguages }: Props) {

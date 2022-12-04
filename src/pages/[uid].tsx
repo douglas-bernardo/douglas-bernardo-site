@@ -10,7 +10,7 @@ import { capitalize } from '../helpers/utils';
 import { Post, Settings } from '../@types/types';
 
 import styles from './../styles/page.module.scss';
-import { PageDocument } from '../../.slicemachine/prismicio';
+import { PageDocument, PostDocument } from '../../.slicemachine/prismicio';
 
 type PageProps = {
   page: PageDocument<string>;
@@ -58,20 +58,27 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
+  const settings = await client.getSingle('settings', { lang: locale });
   const page = await client.getByUID('page', String(uid), { lang: locale });
+
   const relatedTags = page.data.tags
-    .split(',')
+    ?.split(',')
     .map((element) => element.trim());
 
-  const posts = await client.getAllByType('post', {
-    limit: 10,
-    predicates: [prismic.predicate.any('document.tags', relatedTags)],
-    orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' },
-    ],
-  });
-
-  const settings = await client.getSingle('settings');
+  let posts: PostDocument<string>[] = [];
+  try {
+    posts = await client.getAllByType('post', {
+      limit: 10,
+      lang: locale,
+      predicates: [prismic.predicate.any('document.tags', relatedTags)],
+      orderings: [
+        { field: 'document.first_publication_date', direction: 'desc' },
+      ],
+    });
+  } catch (error) {
+    console.error(error instanceof prismic.ParsingError);
+    console.error(error.message);
+  }
 
   return {
     props: {

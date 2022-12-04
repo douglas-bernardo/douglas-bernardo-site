@@ -45,7 +45,7 @@ export function HorizontalCard({ post }: Props) {
           </a>
         </Link>
         <div className={styles.cardDate}>
-          <time>{timeDistance(post.last_publication_date)}</time>
+          <time>{timeDistance(post.last_publication_date, post.lang)}</time>
           <div className={styles.cardDateDivider} />
           <span>{`${post.data.read_minutes || 0} min read`}</span>
         </div>

@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import { PrismicText, PrismicRichText } from '@prismicio/react';
+import { PrismicText } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 
 import Link from 'next/link';
@@ -12,11 +12,7 @@ import { Page } from '../components/Page';
 
 import { createClient } from '../services/prismicio';
 import { filterTextSlice } from '../helpers/utils';
-import {
-  PageDocument,
-  PageDocumentData,
-  TextSlice,
-} from '../../.slicemachine/prismicio';
+import { PageDocument } from '../../.slicemachine/prismicio';
 
 import styles from './../styles/home.module.scss';
 
@@ -87,14 +83,15 @@ export const getStaticProps: GetStaticProps = async ({
 
   const page = await client.getByUID('page', 'home', { lang: locale });
 
-  const posts = await client.getAllByType('post', { limit: 5 });
-  const settings = await client.getSingle('settings');
+  const posts = await client.getAllByType('post', { limit: 5, lang: locale });
+  const settings = await client.getSingle('settings', { lang: locale });
 
   const categoriesResponse = await client.getAllByType('category', {
     limit: 10,
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
+    lang: locale,
   });
 
   const categories = categoriesResponse.map((category) => {

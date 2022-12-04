@@ -49,6 +49,7 @@ interface Props {
   params: {
     url: string;
     titlePost: string;
+    shareMessage?: string;
   };
 }
 
@@ -65,7 +66,7 @@ export function SocialShareButtons({ params }: Props) {
 
   return (
     <div className={styles.container}>
-      <p className="text">Compartilhe este Post:</p>
+      <p className="text">{params.shareMessage}</p>
       <ul>
         {Object.entries(socialShareMap).map(
           ([socialShareItemKey, socialShareProvider]) => (
