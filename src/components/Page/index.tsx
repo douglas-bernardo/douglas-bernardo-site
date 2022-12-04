@@ -9,7 +9,7 @@ interface Props extends NextSeoProps {
   description?: string;
   path?: string;
   settings: Settings;
-  alternateLanguages?: AlternateLanguage<'page', string>[];
+  alternateLanguages?: AlternateLanguage<string, string>[];
   children: ReactNode;
 }
 

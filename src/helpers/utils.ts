@@ -1,8 +1,14 @@
 import { format, parseISO, formatDistance } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import enUS from 'date-fns/locale/en-US';
 
 import * as prismicH from '@prismicio/helpers';
 import { PageDocument, TextSlice } from '../../.slicemachine/prismicio';
+
+const localeOptions = {
+  'pt-br': ptBR,
+  'en-us': enUS,
+};
 
 export const findFirstImage = (slices: any) => {
   const imageSlice = slices.find((slice) => slice.slice_type === 'image');
@@ -41,10 +47,10 @@ export function hourFormatter(date: string): string {
   return format(parseISO(date), 'p');
 }
 
-export function timeDistance(date: string): string {
+export function timeDistance(date: string, locale = 'pt-br'): string {
   return formatDistance(parseISO(date), new Date(), {
     addSuffix: true,
-    locale: ptBR,
+    locale: localeOptions[locale],
   });
 }
 

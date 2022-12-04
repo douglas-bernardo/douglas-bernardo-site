@@ -9,7 +9,7 @@ import { ToggleThemeButton } from '../ToggleThemeButton';
 import styles from './styles.module.scss';
 
 type Props = {
-  alternateLanguages?: AlternateLanguage<'page', string>[];
+  alternateLanguages?: AlternateLanguage<string, string>[];
 };
 
 export function MenuMobile({ alternateLanguages }: Props) {

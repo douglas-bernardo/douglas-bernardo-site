@@ -6,6 +6,7 @@ import {
 import {
   AuthorDocumentData,
   CategoryDocumentData,
+  PostDocument,
 } from '../../.slicemachine/prismicio';
 
 interface Author {
@@ -18,10 +19,11 @@ export type Post = {
   id: string;
   uid: string;
   type: string;
+  lang?: string;
   tags: string[];
   first_publication_date: string;
   last_publication_date: string;
-  alternate_languages: AlternateLanguage<'page', string>[];
+  alternate_languages?: AlternateLanguage<string, string>[];
   data: {
     title: RichTextField;
     featured_image: ImageFieldImage;
@@ -41,6 +43,7 @@ export type Settings = {
     description: RichTextField;
     profilePicture: ImageFieldImage;
     copyright: RichTextField;
+    share_message: RichTextField;
   };
 };
 

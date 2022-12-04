@@ -34,10 +34,10 @@ export default function Post({
 
   return (
     <Page
-      alternateLanguages={post.alternate_languages}
       settings={settings}
       title={prismicH.asText(post.data.title)}
       description={post.data.meta_description}
+      alternateLanguages={post.alternate_languages}
       path={`/posts/${slug}`}
       openGraph={{
         type: 'article',
@@ -68,7 +68,7 @@ export default function Post({
             </small>
             <div className={`${styles.dateDivider} ${styles[theme]}`} />
             <time className="text">
-              {timeDistance(post.last_publication_date)}
+              {timeDistance(post.last_publication_date, post.lang)}
             </time>
             <div className={`${styles.dateDivider} ${styles[theme]}`} />
             <span className="text">{`${
@@ -83,6 +83,7 @@ export default function Post({
             params={{
               url: `${process.env.NEXT_PUBLIC_URL}/posts/${slug}`,
               titlePost: prismicH.asText(post.data.title),
+              shareMessage: prismicH.asText(settings.data.share_message),
             }}
           />
         </article>
@@ -110,7 +111,7 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
   const { uid } = params;
 
-  const settings = await client.getSingle('settings');
+  const settings = await client.getSingle('settings', { lang: locale });
 
   const post = await client.getByUID('post', String(uid), {
     fetchLinks: 'author.author_name',
@@ -119,6 +120,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   const latestSimilarPosts = await client.getAllByType('post', {
     limit: 3,
+    lang: locale,
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
