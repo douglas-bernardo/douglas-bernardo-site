@@ -136,6 +136,7 @@ export const getStaticProps: GetStaticProps = async ({
       latestSimilarPosts,
       slug: uid,
     },
+    revalidate: 60 * 60 * 24, // 24h
   };
 };
 
