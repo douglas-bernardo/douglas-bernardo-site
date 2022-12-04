@@ -1,6 +1,6 @@
 import { DefaultSeoProps } from 'next-seo';
 
-const title = 'Bean Codes';
+const title = 'Beancodes';
 const description = 'Um blog de desenvolvedor - Douglas Bernardo';
 const openGraphImage1 = `${process.env.NEXT_PUBLIC_URL}/images/og-image-01.png`;
 

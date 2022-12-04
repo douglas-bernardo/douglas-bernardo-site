@@ -25,11 +25,10 @@ export function Header({ alternateLanguages }: Props) {
     <header className={`${styles.headerContainer} ${styles[theme]}`}>
       <div className={styles.headerContent}>
         <div>
-          {/* <img src="/images/logo/logo.png" alt="logo" /> */}
-
           <Link href="/">
             <a>
-              <h2 className="text">Bean Codes</h2>
+              <img src="/images/logo/logo.png" alt="logo" />
+              <h2 className="text">Beancodes</h2>
             </a>
           </Link>
 
