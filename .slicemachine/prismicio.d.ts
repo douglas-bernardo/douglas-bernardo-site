@@ -279,6 +279,17 @@ interface SettingsDocumentData {
      *
      */
     share_message: prismicT.RichTextField;
+    /**
+     * Similar Posts field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.similar_posts
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    similar_posts: prismicT.RichTextField;
 }
 /**
  * Settings document from Prismic

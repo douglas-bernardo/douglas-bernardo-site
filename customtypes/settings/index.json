@@ -51,6 +51,15 @@
           "allowTargetBlank": true,
           "single": "paragraph,strong"
         }
+      },
+      "similar_posts": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Similar Posts",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong"
+        }
       }
     }
   }
