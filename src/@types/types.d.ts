@@ -44,6 +44,7 @@ export type Settings = {
     profilePicture: ImageFieldImage;
     copyright: RichTextField;
     share_message: RichTextField;
+    similar_posts: RichTextField;
   };
 };
 

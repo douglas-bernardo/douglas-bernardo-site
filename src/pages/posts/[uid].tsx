@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import * as prismicH from '@prismicio/helpers';
 import * as prismic from '@prismicio/client';
 
-import { SliceZone } from '@prismicio/react';
+import { PrismicRichText, SliceZone } from '@prismicio/react';
 import { components } from '../../../slices';
 import { timeDistance } from '../../helpers/utils';
 
@@ -91,7 +91,9 @@ export default function Post({
 
       {latestSimilarPosts.length > 0 && (
         <div className={styles.similarPosts}>
-          <h3 className="text">SIMILAR POSTS</h3>
+          <h3 className="text">
+            {<PrismicRichText field={settings.data.similar_posts} />}
+          </h3>
           <div>
             {latestSimilarPosts.map((p) => (
               <MiniCard key={p.uid} post={p} />

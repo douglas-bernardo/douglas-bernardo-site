@@ -32,6 +32,12 @@
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
+      },
+      "similar_posts": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "category": {
