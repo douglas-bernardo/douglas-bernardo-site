@@ -1,3 +1,4 @@
+import { parseISO } from 'date-fns';
 import { getServerSideSitemap } from 'next-sitemap';
 import { GetServerSideProps } from 'next';
 import { createClient, linkResolver } from '../../services/prismicio';
@@ -25,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         post,
         linkResolver,
       )}`,
-      lastmod: post.last_publication_date,
+      lastmod: parseISO(post.last_publication_date).toISOString(),
     };
   });
 
