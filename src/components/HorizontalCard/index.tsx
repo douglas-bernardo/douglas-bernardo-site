@@ -1,13 +1,12 @@
 import Link from 'next/link';
-
+import Image from 'next/image';
 import * as prismicH from '@prismicio/helpers';
+import { PrismicText } from '@prismicio/react';
 
 import { getExcerpt, timeDistance } from '../../helpers/utils';
 import { Post } from '../../@types/types';
 
 import styles from './styles.module.scss';
-import { PrismicText } from '@prismicio/react';
-import Image from 'next/image';
 import { useTheme } from '../../context/theme';
 
 type Props = {

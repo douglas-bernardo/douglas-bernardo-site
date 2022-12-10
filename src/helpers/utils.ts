@@ -33,7 +33,7 @@ export const getExcerpt = (slices: any, rangeMin = 0): string => {
   }
 
   if (text.length > 300) {
-    return excerpt.substring(0, excerpt.lastIndexOf(' ')) + '…';
+    return excerpt.substring(0, excerpt.lastIndexOf(' ')) + ' […]';
   } else {
     return excerpt;
   }

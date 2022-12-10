@@ -4,7 +4,6 @@
   position: relative;
   max-width: 45rem;
   height: 200px;
-  display: flex;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -89,4 +88,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   // text-overflow: ellipsis;
+
+  @include small {
+    -webkit-line-clamp: 2;
+  }
 }

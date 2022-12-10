@@ -75,13 +75,10 @@
     }
   }
 
-  .toggleDarkThemeButton {
-    @include medium {
-      display: none;
-    }
-  }
-
-  .alternateLanguages {
+  .toggleButtons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     @include medium {
       display: none;
     }

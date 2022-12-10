@@ -54,11 +54,9 @@ export function Header({ alternateLanguages }: Props) {
             </ActiveLink>
           </nav>
 
-          <div className={styles.toggleDarkThemeButton}>
+          <div className={styles.toggleButtons}>
             <ToggleThemeButton />
-          </div>
 
-          <div className={styles.alternateLanguages}>
             {alternateLanguages?.length > 0 &&
               alternateLanguages.map((lang) => (
                 <Link
