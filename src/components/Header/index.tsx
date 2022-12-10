@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import { AlternateLanguage } from '@prismicio/types';
+import { linkResolver } from '../../services/prismicio';
 
 import { ToggleThemeButton } from '../ToggleThemeButton';
 import { ActiveLink } from '../ActiveLink';
 
 import { useTheme } from '../../context/theme';
 
-import styles from './styles.module.scss';
-import { linkResolver } from '../../services/prismicio';
 import { FlagIcon } from '../FlagIcon';
+
+import styles from './styles.module.scss';
+import { RSSFeedButton } from '../RSSFeedButton';
 
 const flagTitle = {
   'pt-br': 'Veja em Português',
@@ -55,8 +57,6 @@ export function Header({ alternateLanguages }: Props) {
           </nav>
 
           <div className={styles.toggleButtons}>
-            <ToggleThemeButton />
-
             {alternateLanguages?.length > 0 &&
               alternateLanguages.map((lang) => (
                 <Link
@@ -69,6 +69,10 @@ export function Header({ alternateLanguages }: Props) {
                   </a>
                 </Link>
               ))}
+
+            <ToggleThemeButton />
+
+            <RSSFeedButton />
           </div>
         </div>
       </div>
