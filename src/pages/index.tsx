@@ -115,6 +115,6 @@ export const getStaticProps: GetStaticProps = async ({
       settings,
       categories,
     },
-    revalidate: 60 * 60 * 24, // 24h
+    // revalidate: 60 * 60 * 24, // 24h
   };
 };
