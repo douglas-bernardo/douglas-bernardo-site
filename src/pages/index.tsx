@@ -82,9 +82,15 @@ export const getStaticProps: GetStaticProps = async ({
   const client = createClient({ previewData });
 
   const page = await client.getByUID('page', 'home', { lang: locale });
-
-  const posts = await client.getAllByType('post', { limit: 5, lang: locale });
   const settings = await client.getSingle('settings', { lang: locale });
+
+  const posts = await client.getAllByType('post', {
+    limit: 5,
+    lang: locale,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+  });
 
   const categoriesResponse = await client.getAllByType('category', {
     limit: 10,
