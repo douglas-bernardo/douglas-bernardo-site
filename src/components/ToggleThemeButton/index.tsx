@@ -14,6 +14,7 @@ export function ToggleThemeButton() {
       onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeLight}`}
       aria-label="change to light theme"
+      title="Light theme"
     >
       <ImSun />
     </button>
@@ -23,6 +24,7 @@ export function ToggleThemeButton() {
       onClick={toggleTheme}
       className={`${styles.toggleTheme} ${styles.toggleThemeDark}`}
       aria-label="change to dark theme"
+      title="Dark theme"
     >
       <RiMoonFill />
     </button>
