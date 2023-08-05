@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"language": {
+				"__TYPE__": "FieldContent",
+				"value": "csharp",
+				"type": "Select"
+			},
+			"preformatted": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco Lorem aute qui duis cillum Lorem nulla non mollit velit laborum. Mollit dolor ex ipsum ullamco in fugiat officia. Mollit veniam ut irure."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

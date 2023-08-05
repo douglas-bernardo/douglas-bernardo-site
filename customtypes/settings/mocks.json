@@ -1,0 +1,80 @@
+[
+  {
+    "greeting_text": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Amet dolore cupidatat fugiat ad nisi sit. Dolore anim ea deserunt sunt ex in."
+          }
+        }
+      ]
+    },
+    "description": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Mollit adipisicing qui aliqua dolor fugiat. Cillum tempor consequat laborum nulla cupidatat ipsum incididunt laboris. Ut quis consequat dolore enim veniam eu est nisi sint elit tempor sunt id."
+          }
+        }
+      ]
+    },
+    "profilePicture": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+        "width": 12288,
+        "height": 16384
+      },
+      "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?rect=0%2C2048%2C12288%2C12288&w=2000&h=2000",
+      "width": 2000,
+      "height": 2000,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 2048
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    },
+    "copyright": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Veniam esse excepteur in pariatur irure minim incididunt occaecat."
+          }
+        }
+      ]
+    },
+    "share_message": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Aliquip eu ullamco adipisicing ea eiusmod minim quis aute non non veniam."
+          }
+        }
+      ]
+    },
+    "similar_posts": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Esse do velit nostrud cupidatat ut duis eu. Amet deserunt laboris minim veniam consectetur aute magna culpa officia exercitation. Eiusmod et et non aliqua adipisicing."
+          }
+        }
+      ]
+    }
+  }
+]

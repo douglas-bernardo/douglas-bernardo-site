@@ -6,11 +6,10 @@ import { createClient } from '../services/prismicio';
 import { Page as SEOPageComponent } from '../components/Page';
 import { HorizontalCard } from '../components/HorizontalCard';
 
-import { capitalize } from '../helpers/utils';
 import { Post, Settings } from '../@types/types';
 
 import styles from './../styles/page.module.scss';
-import { PageDocument, PostDocument } from '../../.slicemachine/prismicio';
+import { PageDocument, PostDocument } from '../../prismicio-types';
 
 type PageProps = {
   page: PageDocument<string>;

@@ -3,11 +3,9 @@ import {
   ImageFieldImage,
   AlternateLanguage,
 } from '@prismicio/types';
-import {
-  AuthorDocumentData,
-  CategoryDocumentData,
-  PostDocument,
-} from '../../.slicemachine/prismicio';
+
+import { CategoryDocumentData } from '../../prismicio-types';
+
 
 interface Author {
   data: {

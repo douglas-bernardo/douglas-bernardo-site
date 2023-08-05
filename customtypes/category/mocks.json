@@ -1,0 +1,19 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "friend"
+    },
+    "category_name": {
+      "__TYPE__": "StructuredTextContent",
+      "value": [
+        {
+          "type": "paragraph",
+          "content": {
+            "text": "Nisi pariatur et sit ipsum. Commodo non labore ex mollit laboris. Sint ipsum sit ea est excepteur laborum."
+          }
+        }
+      ]
+    }
+  }
+]

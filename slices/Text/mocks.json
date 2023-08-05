@@ -1,0 +1,30 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui occaecat quis pariatur veniam irure elit et deserunt excepteur consectetur mollit irure non sint. Irure officia officia dolore sunt adipisicing amet veniam."
+						}
+					}
+				]
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "swim",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

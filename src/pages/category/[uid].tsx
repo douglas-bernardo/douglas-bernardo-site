@@ -4,10 +4,8 @@ import * as prismic from '@prismicio/client';
 
 import { createClient } from '../../services/prismicio';
 
-import {
-  CategoryDocument,
-  SettingsDocument,
-} from '../../../.slicemachine/prismicio';
+import { CategoryDocument, SettingsDocument } from '../../../prismicio-types';
+
 import { Post, Settings } from '../../@types/types';
 import { HorizontalCard } from '../../components/HorizontalCard';
 import { Page } from '../../components/Page';

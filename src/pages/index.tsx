@@ -12,9 +12,9 @@ import { Page } from '../components/Page';
 
 import { createClient } from '../services/prismicio';
 import { filterTextSlice } from '../helpers/utils';
-import { PageDocument } from '../../.slicemachine/prismicio';
 
 import styles from './../styles/home.module.scss';
+import { PageDocument } from '../../prismicio-types';
 
 type Props = {
   page?: PageDocument<string>;

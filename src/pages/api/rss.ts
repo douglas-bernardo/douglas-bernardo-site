@@ -1,10 +1,10 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import RSS from 'rss';
 
-import { createClient, linkResolver } from '../../services/prismicio';
+import { createClient } from '../../services/prismicio';
 import * as prismicH from '@prismicio/helpers';
 import { metadata } from '../../../config';
-import { TextSlice } from '../../../.slicemachine/prismicio';
+import { TextSlice } from '../../../prismicio-types';
 
 export default async (request: VercelRequest, response: VercelResponse) => {
   const client = createClient();

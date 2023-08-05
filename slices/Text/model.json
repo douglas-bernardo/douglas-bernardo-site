@@ -22,14 +22,11 @@
         },
         "label": {
           "type": "Text",
-          "config": {
-            "label": "label",
-            "placeholder": ""
-          }
+          "config": { "label": "label", "placeholder": "" }
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/bean-codes/shared-slices/text/default/35ec903ebae82d3d7415da1997b078b85a6ffde8.png?auto=compress%2Cformat"
     }
   ]
 }
