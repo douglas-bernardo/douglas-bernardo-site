@@ -4,7 +4,6 @@ import enUS from 'date-fns/locale/en-US';
 
 import * as prismicH from '@prismicio/helpers';
 import { PageDocument, TextSlice } from '../../prismicio-types';
-// import { PageDocument, TextSlice } from '../../.slicemachine/prismicio';
 
 const localeOptions = {
   'pt-br': ptBR,
