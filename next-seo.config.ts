@@ -1,6 +1,6 @@
 import { DefaultSeoProps } from 'next-seo';
 
-const title = 'Beancodes';
+const title = 'Douglas Bernardo';
 const description = 'Um blog de desenvolvedor - Douglas Bernardo';
 const openGraphImage1 = `${process.env.NEXT_PUBLIC_URL}/images/og-image-01.png`;
 
@@ -13,7 +13,7 @@ export const SEO: DefaultSeoProps = {
     locale: 'pt_BR',
     url: 'https://beancodes.com/',
     site_name:
-      'Beancodes: Um blog de desenvolvedor de software por Douglas Bernardo',
+      'Douglas Bernardo: Um blog de desenvolvedor de software',
     images: [
       {
         url: openGraphImage1,
@@ -25,8 +25,8 @@ export const SEO: DefaultSeoProps = {
     ],
   },
   twitter: {
-    handle: '@beancodes',
-    site: '@beancodes',
+    handle: '@douglasbdev',
+    site: '@douglasbdev',
     cardType: 'summary_large_image',
   },
   robotsProps: {

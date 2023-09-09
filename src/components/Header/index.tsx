@@ -30,7 +30,7 @@ export function Header({ alternateLanguages }: Props) {
           <Link href="/">
             <a>
               <img src="/images/logo/logo.png" alt="logo" />
-              <h2 className="text">Beancodes</h2>
+              <h2 className="text">Douglas Bernardo</h2>
             </a>
           </Link>
 
