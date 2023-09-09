@@ -11,7 +11,7 @@ export const SEO: DefaultSeoProps = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://beancodes.com/',
+    url: 'https://douglasbernardo.com/',
     site_name:
       'Douglas Bernardo: Um blog de desenvolvedor de software',
     images: [

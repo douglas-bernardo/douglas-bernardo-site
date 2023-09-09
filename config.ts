@@ -1,7 +1,7 @@
 const metadata = {
-  siteName: 'Beancodes',
+  siteName: 'Douglas Bernardo',
   description: 'Um blog de desenvolvedor - Douglas Bernardo',
-  siteUrl: 'https://beancodes.com',
+  siteUrl: 'https://douglasbernardo.com',
   rssEditor: 'jkdouglas21@gmail.com',
   author: {
     name: 'Douglas Bernardo',

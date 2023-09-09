@@ -18,7 +18,7 @@ export default async (request: VercelRequest, response: VercelResponse) => {
   });
 
   const feed = new RSS({
-    title: 'Beancodes',
+    title: 'Douglas Bernardo',
     feed_url: `${metadata.siteUrl}/api/rss`,
     site_url: metadata.siteUrl,
     managingEditor: metadata.rssEditor,

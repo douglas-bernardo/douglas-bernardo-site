@@ -61,7 +61,7 @@ export function SocialShareButtons({ params }: Props) {
   const linkParams = {
     urlPost: params.url,
     titlePost: params.titlePost,
-    sourcePost: 'company/beancodes/',
+    sourcePost: 'company/douglasbernardo/',
   };
 
   return (
